@@ -1,0 +1,43 @@
+.outer {
+  &_disabled {
+    opacity: 0.4;
+  }
+}
+
+.title {
+  margin-bottom: 1em;
+}
+
+.picOuter {
+  position: relative;
+}
+
+.pic {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.edit {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 8px;
+  cursor: pointer;
+  background: var(--color-main);
+}
+
+.editIcon {
+  display: block;
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  fill: var(--color-main-inverted);
+}
+
+.input {
+  display: none;
+}

@@ -1,0 +1,19 @@
+.outer {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 56px;
+}
+
+.sidebar {
+  position: sticky;
+  top: calc(var(--header-height) + 48px);
+  max-width: 480px;
+}
+
+.content {
+  flex-grow: 1;
+  width: fit-content;
+  max-width: 660px;
+}

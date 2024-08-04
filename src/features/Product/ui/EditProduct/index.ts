@@ -1,0 +1,1 @@
+export { EditProduct } from './EditProduct';

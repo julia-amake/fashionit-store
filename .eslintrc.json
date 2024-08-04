@@ -1,0 +1,157 @@
+{
+  "env": {
+    "browser": true,
+    "node": true,
+    "commonjs": true,
+    "es2021": true
+  },
+  "extends": [
+    "plugin:react/jsx-runtime",
+    // позволяет не импортировать реакт
+    "plugin:import/recommended",
+    // подсказки при импорте
+    // "airbnb",
+    "plugin:jest/recommended",
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
+    //поддержка хуков
+    "plugin:@typescript-eslint/recommended",
+    "prettier",
+    // отключает конфликты с prettier
+    "plugin:prettier/recommended"
+  ],
+  "overrides": [],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaVersion": "latest"
+  },
+  "plugins": [
+    "react",
+    "react-hooks",
+    "@typescript-eslint",
+    "unused-imports",
+    "prettier"
+  ],
+  "rules": {
+    "prettier/prettier": "error",
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "error",
+    "@typescript-eslint/no-var-requires": "off",
+    "@typescript-eslint/triple-slash-reference": "error",
+    "@typescript-eslint/no-unused-vars": "warn",
+    "react/no-unstable-nested-components": "warn",
+    "react/jsx-uses-vars": "error",
+    "react/jsx-uses-react": "error",
+    "unused-imports/no-unused-imports": "error",
+    "sort-imports": [
+      "error",
+      {
+        "ignoreCase": true,
+        "ignoreDeclarationSort": true
+      }
+    ],
+    "import/order": [
+      "error",
+      {
+        "groups": [
+          "builtin",
+          "external",
+          "internal",
+          "parent",
+          "sibling"
+        ],
+        "pathGroups": [
+          {
+            "pattern": "react",
+            "group": "external",
+            "position": "before"
+          },
+          {
+            "pattern": "src/*.*",
+            "group": "external",
+            "position": "after"
+          },
+          {
+            "pattern": "src/**/*.*",
+            "group": "internal",
+            "position": "after"
+          },
+          {
+            "pattern": "src/shared/**/*.*",
+            "group": "internal",
+            "position": "after"
+          },
+          {
+            "pattern": "src/entities/**/*.*",
+            "group": "internal",
+            "position": "after"
+          },
+          {
+            "pattern": "src/features/**/*.*",
+            "group": "internal",
+            "position": "after"
+          },
+          {
+            "pattern": "src/widgets/**/*.*",
+            "group": "internal",
+            "position": "after"
+          },
+          {
+            "pattern": "src/app/**/*.*",
+            "group": "internal",
+            "position": "after"
+          },
+          {
+            "pattern": "./**/*.*",
+            "group": "sibling",
+            "position": "after"
+          },
+          {
+            "pattern": "./**.module.*",
+            "group": "sibling",
+            "position": "after"
+          }
+        ],
+        "pathGroupsExcludedImportTypes": [
+          "react"
+        ],
+        "newlines-between": "never",
+        "alphabetize": {
+          "order": "asc",
+          "caseInsensitive": true
+        }
+      }
+    ],
+    "import/no-cycle": "warn",
+    "import/no-unresolved": [
+      "error",
+      {
+        "ignore": [
+          "\\.svg\\?url$"
+        ]
+      }
+    ]
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    },
+    "import/resolver": {
+      "node": {
+        "paths": [
+          "."
+        ],
+        "extensions": [
+          ".js",
+          ".jsx",
+          ".ts",
+          ".tsx"
+        ]
+      }
+    }
+  },
+  "globals": {
+    "__IS_DEV__": true
+  }
+}

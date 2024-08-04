@@ -1,0 +1,43 @@
+.outer {
+  position: relative;
+}
+
+.trigger {
+  padding: 0.5em;
+
+  &_active {
+    box-shadow: 0 0 0 1px var(--color-main);
+  }
+}
+
+.content {
+  display: none;
+  position: absolute;
+  z-index: 100;
+  min-width: 100%;
+  padding: 0.5em 0;
+  top: 100%;
+  background: var(--color-main-inverted);
+  box-shadow: 0 0 0 1px var(--color-main);
+
+  &_left {
+    left: 0;
+  }
+
+  &_right {
+    right: 0;
+  }
+
+  &_open {
+    display: block;
+  }
+}
+
+.item {
+  width: 100%;
+  padding: 0.5em 1em;
+
+  &:hover {
+    background: var(--color-gray-3);
+  }
+}

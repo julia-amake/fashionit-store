@@ -1,0 +1,68 @@
+.outer {
+  font-weight: bold;
+  letter-spacing: -0.02em;
+}
+
+.size {
+  &-h1 {
+    font-size: 112px;
+    line-height: 1;
+  }
+
+  &-h2 {
+    font-size: 80px;
+    line-height: 1;
+  }
+
+  &-h3 {
+    font-size: 56px;
+    line-height: 1;
+  }
+
+  &-h4 {
+    font-size: 40px;
+    line-height: 1.05;
+  }
+
+  &-h5 {
+    font-size: 28px;
+    line-height: 1.1;
+  }
+
+  &-h6 {
+    font-weight: 750;
+    font-size: 20px;
+    line-height: 1.1;
+  }
+}
+
+.weight {
+  &-light {
+    font-weight: 300;
+
+    &.size-h6 {
+      font-weight: 400;
+    }
+  }
+
+  &-normal {
+    font-weight: 450;
+
+    &.size-h6 {
+      font-weight: 500;
+    }
+  }
+
+  &-bold {
+    font-weight: bold;
+
+    &.size-h6 {
+      font-weight: 750;
+    }
+  }
+}
+
+.upper {
+  line-height: 1.1;
+  text-transform: uppercase;
+}

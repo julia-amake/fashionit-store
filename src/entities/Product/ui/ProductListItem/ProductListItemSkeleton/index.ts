@@ -1,0 +1,1 @@
+export { ProductListItemSkeleton } from './ProductListItemSkeleton';

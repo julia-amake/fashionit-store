@@ -1,0 +1,166 @@
+.outer {
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  font-weight: 500;
+  line-height: 1.4;
+  white-space: nowrap;
+  isolation: isolate;
+
+  &_full {
+    width: 100%;
+  }
+
+  &_variant {
+    &-primary {
+      color: var(--color-main-inverted);
+      background: var(--color-main);
+
+      &:not(.outer_disabled):hover {
+        background: var(--color-gray-1);
+      }
+    }
+
+    &-secondary {
+      color: var(--color-main);
+      background: var(--color-main-inverted);
+      box-shadow: inset 0 0 0 1px var(--color-main);
+
+      &:not(.outer_disabled):hover {
+        background: var(--color-gray-3);
+      }
+    }
+
+    &-clean {
+      color: inherit;
+      background: none;
+      border: 0;
+    }
+  }
+
+  &_text {
+    &-center {
+      justify-content: center;
+    }
+
+    &-left {
+      justify-content: flex-start;
+    }
+
+    &-right {
+      justify-content: flex-end;
+    }
+  }
+
+  &_size {
+    &-xs {
+      gap: 8px;
+      padding: 11px 18px;
+      font-size: 12px;
+      line-height: 15px;
+    }
+
+    &-s {
+      gap: 10px;
+      padding: 12px 20px;
+      font-size: 14px;
+      line-height: 20px;
+    }
+
+    &-m {
+      gap: 12px;
+      padding: 15px 24px;
+      font-size: 15px;
+      line-height: 20px;
+    }
+  }
+
+  &_noLabel {
+    &-xs {
+      padding: 9px;
+    }
+
+    &-s {
+      padding: 10px;
+    }
+
+    &-m {
+      padding: 12px;
+    }
+  }
+
+  &_variant-clean {
+    padding: 0;
+  }
+
+  &_disabled {
+    cursor: auto;
+    opacity: 0.15;
+  }
+
+  &_rounded {
+    border-radius: 90px;
+  }
+}
+
+.icon {
+  object-fit: contain;
+
+  &_withLabel {
+    // offset in svg
+    margin-left: -2px;
+    margin-right: -2px;
+  }
+
+  &_size {
+    &-xs {
+      width: 16px;
+      height: 16px;
+
+      &.icon_noLabel {
+        width: 20px;
+        height: 20px;
+      }
+    }
+
+    &-s {
+      width: 20px;
+      height: 20px;
+
+      &.icon_noLabel {
+        width: 24px;
+        height: 24px;
+      }
+    }
+
+    &-m {
+      width: 20px;
+      height: 20px;
+
+      &.icon_withLabel {
+        // offset in svg
+        margin-left: -3px;
+        margin-right: -3px;
+      }
+
+      &.icon_noLabel {
+        width: 26px;
+        height: 26px;
+      }
+    }
+  }
+
+  &_variant {
+    &-primary {
+      fill: var(--color-main-inverted);
+    }
+
+    &-secondary, &-clean {
+      fill: var(--color-main);
+    }
+  }
+
+  &_right {
+    order: 2;
+  }
+}

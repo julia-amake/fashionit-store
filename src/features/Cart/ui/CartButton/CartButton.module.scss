@@ -1,0 +1,12 @@
+.outer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.count {
+  min-width: 32px;
+  font-size: 15px;
+  text-align: center;
+}

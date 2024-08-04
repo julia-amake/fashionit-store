@@ -1,0 +1,24 @@
+.outer {
+  overflow: hidden;
+  height: 0;
+
+  &_animate {
+    transition: height 0.1s linear;
+    will-change: height;
+  }
+}
+
+.content {
+  transform: translateY(-100%);
+  opacity: 0;
+
+  &_animate {
+    transition: transform 0.25s 0.025s ease-in-out, opacity 0.3s 0.05s ease-in-out;
+    will-change: transform, opacity;
+  }
+
+  &_open {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

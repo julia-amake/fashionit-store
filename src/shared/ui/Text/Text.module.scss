@@ -1,0 +1,37 @@
+.text {
+  line-height: 1.2;
+}
+
+.size {
+  &_s {
+    font-size: 10px;
+  }
+
+  &_l {
+    font-size: 18px;
+  }
+}
+
+.weight {
+  &_light {
+    font-weight: 300;
+  }
+
+  &_normal {
+    font-weight: 400;
+  }
+
+  &_bold {
+    font-weight: 700;
+  }
+}
+
+.color {
+  &_primary {
+    color: var(--color-main);
+  }
+
+  &_error {
+    color: var(--color--danger);
+  }
+}

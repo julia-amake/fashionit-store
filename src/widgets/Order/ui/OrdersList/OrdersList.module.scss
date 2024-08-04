@@ -1,0 +1,30 @@
+.outer {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.title {
+  margin-bottom: 8px;
+}
+
+.status {
+  width: fit-content;
+  margin-bottom: 16px;
+  font-size: 12px;
+  color: var(--color-gray-2);
+}
+
+.products {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1%;
+}
+
+.product {
+  width: 9.1%;
+}
+
+.pic {
+  display: block;
+}

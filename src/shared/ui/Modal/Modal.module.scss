@@ -1,0 +1,53 @@
+.outer {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  padding: 56px;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  display: flex;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.1s ease-in;
+  overflow-y: auto;
+
+  &_visible {
+    z-index: 10;
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  &:before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--color-overlay);
+    opacity: 0.95;
+  }
+}
+
+.inner {
+  position: relative;
+  margin: auto;
+  width: min(90vw, 460px);
+  padding: 48px 56px;
+  box-sizing: border-box;
+  font-size: 14px;
+  line-height: 1.6;
+  background: var(--color-main-inverted);
+}
+
+.close {
+  position: fixed;
+  top: 8px;
+  right: 8px;
+}
+
+.closeIcon {
+  fill: var(--color-light);
+}

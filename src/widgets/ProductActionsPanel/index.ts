@@ -1,0 +1,1 @@
+export { ProductActionsPanel } from './ProductActionsPanel';

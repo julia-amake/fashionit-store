@@ -1,0 +1,31 @@
+.outer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: var(--header-height);
+  border-bottom: 1px solid var(--color-gray-3);
+  background: var(--color-main-inverted);
+}
+
+.container {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  @include container();
+}
+
+.logo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: auto;
+}
+
