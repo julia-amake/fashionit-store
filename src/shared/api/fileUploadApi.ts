@@ -1,5 +1,5 @@
-import { rtkApi } from 'src/shared/api/rtkApi';
-import { transformErrorResponse } from 'src/shared/lib/utils';
+import { transformErrorResponse } from '../lib/utils';
+import { rtkApi } from './rtkApi';
 
 export interface FileUploadResponse {
   url: string;

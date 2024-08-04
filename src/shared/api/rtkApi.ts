@@ -1,6 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { API_URL } from 'src/shared/consts/api';
-import { getAuthorizationToken } from 'src/shared/lib/utils';
+import { API_URL } from '../consts/api';
+import { getAuthorizationToken } from '../lib/utils';
 
 export const rtkApi = createApi({
   reducerPath: 'rtkApi',
