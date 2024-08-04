@@ -8,6 +8,7 @@ import { AppRouter } from 'src/app/routing/ui/AppRouter';
 import { store } from 'src/app/store/store';
 
 const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement);
+
 root.render(
   <React.StrictMode>
     <Provider store={store}>
