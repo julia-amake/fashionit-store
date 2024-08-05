@@ -3,7 +3,7 @@ import { Outlet } from 'react-router-dom';
 import { setIsAppInited } from 'src/app/model/slices/appSlice';
 import { setProductsFromLocalStorage } from 'src/features/Cart';
 import { LOCAL_STORAGE_VERSION_KEY } from 'src/shared/consts/localStorage';
-import { useAppDispatch } from 'src/shared/lib/hooks';
+import { useAppDispatch } from 'src/shared/lib/hooks/redux';
 
 const APP_VERSION = 'v1';
 

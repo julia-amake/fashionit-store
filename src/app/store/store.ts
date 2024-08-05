@@ -24,8 +24,8 @@ export const store = configureStore({
       .prepend(logoutListenerMiddleware.middleware),
 });
 
+sagaMiddleware.run(rootWatcher);
+
 export type AppStore = typeof store;
 export type RootState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
-
-sagaMiddleware.run(rootWatcher);

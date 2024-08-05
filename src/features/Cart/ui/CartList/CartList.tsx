@@ -1,7 +1,7 @@
 import React, { memo } from 'react';
 import cn from 'clsx';
 import { Product } from 'src/entities/Product';
-import { useAppSelector } from 'src/shared/lib/hooks';
+import { useAppSelector } from 'src/shared/lib/hooks/redux';
 import { useFetchCartProductsQuery } from '../../api/cartApi';
 import { selectCartIds, selectCartProducts } from '../../model/slices/CartSlice';
 import { CartItem } from '../CartItem';

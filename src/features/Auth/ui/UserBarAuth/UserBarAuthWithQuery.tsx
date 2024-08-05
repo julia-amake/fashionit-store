@@ -2,7 +2,7 @@ import React, { memo, useCallback, useEffect, useState } from 'react';
 import cn from 'clsx';
 import { useTranslation } from 'react-i18next';
 import { LOCAL_STORAGE_TOKEN_KEY } from 'src/shared/consts/localStorage';
-import { useAppDispatch } from 'src/shared/lib/hooks';
+import { useAppDispatch } from 'src/shared/lib/hooks/redux';
 import { Button } from 'src/shared/ui/Button';
 import { Modal } from 'src/shared/ui/Modal';
 import menuStyles from 'src/shared/styles/common/menuList.module.scss';

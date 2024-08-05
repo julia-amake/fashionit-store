@@ -1,7 +1,7 @@
 import React, { memo, useCallback } from 'react';
 import cn from 'clsx';
 import { useTranslation } from 'react-i18next';
-import { useAppDispatch, useAppSelector } from 'src/shared/lib/hooks';
+import { useAppDispatch, useAppSelector } from 'src/shared/lib/hooks/redux';
 import { Button, ButtonProps, ButtonSize } from 'src/shared/ui/Button';
 import BugIcon from 'src/shared/assets/icons/Bag.svg';
 import MinusIcon from 'src/shared/assets/icons/Minus.svg';

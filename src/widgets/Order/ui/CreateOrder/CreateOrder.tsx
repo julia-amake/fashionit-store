@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { useFetchProfileQuery } from 'src/entities/Profile';
 import { clearCart, selectCartProductsList } from 'src/features/Cart';
 import { ROUTER_PATHS } from 'src/shared/consts/router';
-import { useAppDispatch, useAppSelector } from 'src/shared/lib/hooks';
+import { useAppDispatch, useAppSelector } from 'src/shared/lib/hooks/redux';
 import { Button } from 'src/shared/ui/Button';
 import { Text } from 'src/shared/ui/Text';
 import { useCreateOrderMutation } from '../../api/orderApi';

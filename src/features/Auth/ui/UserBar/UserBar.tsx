@@ -1,5 +1,5 @@
 import React, { memo } from 'react';
-import { useAppSelector } from 'src/shared/lib/hooks';
+import { useAppSelector } from 'src/shared/lib/hooks/redux';
 import { selectToken } from '../../model/slices/userSlice';
 import { UserBarAuthWithQuery } from '../UserBarAuth/UserBarAuthWithQuery';
 import { UserBarMenu } from '../UserBarMenu';

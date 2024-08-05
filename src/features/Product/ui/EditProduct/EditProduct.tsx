@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { useModal } from 'src/shared/lib/hooks';
+import { useModal } from 'src/shared/lib/hooks/useModal';
 import { Button } from 'src/shared/ui/Button';
 import { Modal } from 'src/shared/ui/Modal';
 import EditIcon from 'src/shared/assets/icons/Edit.svg';

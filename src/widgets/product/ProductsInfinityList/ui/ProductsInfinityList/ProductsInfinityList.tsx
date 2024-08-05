@@ -8,7 +8,8 @@ import {
   useFetchProductsQuery,
 } from 'src/entities/Product';
 import { CartButton } from 'src/features/Cart';
-import { useAppDispatch, useAppSelector, useInfiniteScroll } from 'src/shared/lib/hooks';
+import { useAppDispatch, useAppSelector } from 'src/shared/lib/hooks/redux';
+import { useInfiniteScroll } from 'src/shared/lib/hooks/useInfiniteScroll';
 import { Button } from 'src/shared/ui/Button';
 import s from '../../styles/ProductsInfinityList.module.scss';
 

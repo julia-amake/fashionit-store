@@ -1,7 +1,7 @@
 import React, { memo } from 'react';
 import { ProductForm } from 'src/features/Product/ui/ProductForm';
 import { ROUTER_PATHS } from 'src/shared/consts/router';
-import { useModalByRoute } from 'src/shared/lib/hooks/useModalByRoute/useModalByRoute';
+import { useModalByRoute } from 'src/shared/lib/hooks/useModalByRoute';
 import { Modal } from 'src/shared/ui/Modal';
 
 export const AddProductPage = memo(() => {

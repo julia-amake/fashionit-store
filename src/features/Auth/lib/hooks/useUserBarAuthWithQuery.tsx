@@ -2,7 +2,7 @@ import { useCallback, useEffect } from 'react';
 import { type SerializedError } from '@reduxjs/toolkit';
 import { type FetchBaseQueryError } from '@reduxjs/toolkit/query';
 import { useFormik } from 'formik';
-import { useAppDispatch } from 'src/shared/lib/hooks';
+import { useAppDispatch } from 'src/shared/lib/hooks/redux';
 import { useSignInRTKMutation, useSignUpRTKMutation } from '../../api/authApi';
 import { login } from '../../model/slices/userSlice';
 import { AuthFormValues } from '../../ui/AuthForm/AuthForm';

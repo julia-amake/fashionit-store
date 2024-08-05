@@ -2,7 +2,7 @@ import React, { ReactNode, useMemo } from 'react';
 import { Navigate, useLocation } from 'react-router-dom';
 import { selectToken } from 'src/features/Auth';
 import { ROUTER_PATHS } from 'src/shared/consts/router';
-import { useAppSelector } from 'src/shared/lib/hooks';
+import { useAppSelector } from 'src/shared/lib/hooks/redux';
 import { selectIsAppInited } from '../../../model/slices/appSlice';
 
 interface RequireAuthProps {

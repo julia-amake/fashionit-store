@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 import cn from 'clsx';
-import { useAppDispatch } from 'src/shared/lib/hooks';
+import { useAppDispatch } from 'src/shared/lib/hooks/redux';
 import { Button } from 'src/shared/ui/Button';
 import RemoveIcon from 'src/shared/assets/icons/Trash.svg';
 import { removeProductFromCart } from '../../model/slices/CartSlice';

@@ -1,6 +1,6 @@
 import React, { ReactNode } from 'react';
 import cn from 'clsx';
-import { usePreventPageScrolling } from 'src/shared/lib/hooks';
+import { usePreventPageScrolling } from 'src/shared/lib/hooks/usePreventPageScrolling';
 import { Button } from 'src/shared/ui/Button';
 import { Portal } from 'src/shared/ui/Portal';
 import CloseIcon from 'src/shared/assets/icons/Close.svg';

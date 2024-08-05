@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import { useFetchProfileQuery } from 'src/entities/Profile';
 import { ROUTER_PATHS } from 'src/shared/consts/router';
-import { useAppDispatch } from 'src/shared/lib/hooks';
+import { useAppDispatch } from 'src/shared/lib/hooks/redux';
 import { Button } from 'src/shared/ui/Button';
 import { Dropdown } from 'src/shared/ui/Dropdown';
 import UserIcon from 'src/shared/assets/icons/User.svg';

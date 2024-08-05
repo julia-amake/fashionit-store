@@ -19,3 +19,7 @@ declare const __IS_DEV__: boolean;
 
 type ValueOf<T> = T[keyof T];
 type KeyOf<T> = keyof T;
+
+type AppStore = import('src/app/store/store').AppStore;
+type RootState = import('src/app/store/store').RootState;
+type AppDispatch = import('src/app/store/store').AppDispatch;
