@@ -1,8 +1,7 @@
 import type { Preview } from '@storybook/react';
-import { StyleDecorator } from 'src/shared/config/storybook/StyleDecorator';
-import { TranslationsDecorator } from 'src/shared/config/storybook/TranslationsDecorator';
+import { StyleDecorator } from 'src/app/config/storybook/StyleDecorator';
+import { TranslationsDecorator } from 'src/app/config/storybook/TranslationsDecorator';
 import { THEME } from 'src/shared/consts/theme';
-import { LANGUAGES } from 'src/shared/consts/langs';
 
 const preview: Preview = {
   parameters: {

@@ -1,7 +1,7 @@
 import React, { memo, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useFetchCategoryByIdQuery } from 'src/entities/Category/api/categoriesApi';
-import { getRouteCategories } from 'src/shared/consts/router';
+import { ROUTER_PATHS } from 'src/shared/consts/router';
 import { Button } from 'src/shared/ui/Button';
 import { ConfirmModal } from 'src/shared/ui/modals/ConfirmModal';
 import CloseIcon from 'src/shared/assets/icons/Trash.svg';
@@ -21,7 +21,7 @@ export const DeleteCategory = memo(({ id, className }: DeleteCategoryProps) => {
 
   const handleRemove = useCallback(async () => {
     await deleteCategory(id);
-    navigate(getRouteCategories());
+    navigate(ROUTER_PATHS.CATEGORIES);
   }, [deleteCategory, id, navigate]);
 
   const button = useCallback(

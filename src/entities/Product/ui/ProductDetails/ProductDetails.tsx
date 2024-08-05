@@ -2,7 +2,7 @@ import React, { ReactElement } from 'react';
 import cn from 'clsx';
 import { Link } from 'react-router-dom';
 import { Category } from 'src/entities/Product';
-import { getRouteCategory } from 'src/shared/consts/router';
+import { ROUTER_PATHS } from 'src/shared/consts/router';
 import { formatNumberToLocal } from 'src/shared/lib/utils';
 import { Heading } from 'src/shared/ui/Heading';
 import noImage from 'src/shared/assets/img/no-product.svg?url';
@@ -38,7 +38,7 @@ export const ProductDetails = ({
       <div className={s.pics}>{pics?.length ? renderImages : renderPlaceholders}</div>
       <div className={s.info}>
         {category && (
-          <Link to={getRouteCategory(category.id)} className={s.category}>
+          <Link to={ROUTER_PATHS.CATEGORY(category.id)} className={s.category}>
             {category.name}
           </Link>
         )}

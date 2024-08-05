@@ -2,7 +2,7 @@ import React, { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import { useFetchProductByIdQuery } from 'src/entities/Product';
-import { getRouteCatalog } from 'src/shared/consts/router';
+import { ROUTER_PATHS } from 'src/shared/consts/router';
 import { Button } from 'src/shared/ui/Button';
 import { ConfirmModal } from 'src/shared/ui/modals/ConfirmModal';
 import CloseIcon from 'src/shared/assets/icons/Trash.svg';
@@ -23,7 +23,7 @@ export const DeleteProduct = memo(({ id, className }: DeleteProductProps) => {
 
   const handleRemove = useCallback(async () => {
     await deleteProduct(id);
-    navigate(getRouteCatalog());
+    navigate(ROUTER_PATHS.CATALOG);
   }, [deleteProduct, id, navigate]);
 
   const button = useCallback(

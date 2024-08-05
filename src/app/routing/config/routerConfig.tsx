@@ -9,26 +9,14 @@ import { CategoryDetailsPage } from 'src/pages/CategoryDetailsPage/ui/CategoryDe
 import { OrdersPage } from 'src/pages/OrdersPage';
 import { ProductDetailsPage } from 'src/pages/ProductDetailsPage';
 import { ProfileSettingsPage } from 'src/pages/profile/ui/ProfileSettingsPage';
-import {
-  getRouteAddProduct,
-  getRouteCart,
-  getRouteCatalog,
-  getRouteCategories,
-  getRouteCategory,
-  getRouteForbidden,
-  getRouteMain,
-  getRouteNotFound,
-  getRouteOrders,
-  getRouteProduct,
-  getRouteProfileSettings,
-} from 'src/shared/consts/router';
+import { ROUTER_PATHS } from 'src/shared/consts/router';
 import { BaseLayout } from 'src/shared/ui/layouts/BaseLayout';
 import { Header } from 'src/widgets/Header';
 import { RequireAuth } from '../ui/RequireAuth';
 
 export const routerConfig = createHashRouter([
   {
-    path: getRouteMain(),
+    path: ROUTER_PATHS.MAIN,
     element: <App />,
     children: [
       {
@@ -36,30 +24,30 @@ export const routerConfig = createHashRouter([
         children: [
           {
             index: true,
-            element: <Navigate to={getRouteCatalog()} />,
+            element: <Navigate to={ROUTER_PATHS.CATALOG} />,
           },
           {
-            path: getRouteCatalog(),
+            path: ROUTER_PATHS.CATALOG,
             element: <CatalogPage />,
           },
           {
-            path: getRouteCategories(),
+            path: ROUTER_PATHS.CATEGORIES,
             element: <CategoriesPage />,
           },
           {
-            path: getRouteCategory(':id'),
+            path: ROUTER_PATHS.CATEGORY(':id'),
             element: <CategoryDetailsPage />,
           },
           {
-            path: getRouteProduct(':id'),
+            path: ROUTER_PATHS.PRODUCT(':id'),
             element: <ProductDetailsPage />,
           },
           {
-            path: getRouteCart(),
+            path: ROUTER_PATHS.CART,
             element: <CartPage />,
           },
           {
-            path: getRouteOrders(),
+            path: ROUTER_PATHS.ORDERS,
             element: (
               <RequireAuth>
                 <OrdersPage />
@@ -67,11 +55,11 @@ export const routerConfig = createHashRouter([
             ),
           },
           {
-            path: getRouteForbidden(),
+            path: ROUTER_PATHS.FORBIDDEN,
             element: <div>У вас нет доступа к этой странице</div>,
           },
           {
-            path: getRouteAddProduct(),
+            path: ROUTER_PATHS.ADD_PRODUCT,
             element: (
               <RequireAuth>
                 <AddProductPage />
@@ -79,14 +67,14 @@ export const routerConfig = createHashRouter([
             ),
           },
           {
-            path: getRouteProfileSettings(),
+            path: ROUTER_PATHS.PROFILE_SETTINGS,
             element: (
               <RequireAuth>
                 <ProfileSettingsPage />
               </RequireAuth>
             ),
           },
-          { path: getRouteNotFound(), element: <div>Такой страницы не существует</div> },
+          { path: ROUTER_PATHS.NOT_FOUND, element: <div>Такой страницы не существует</div> },
         ],
       },
     ],

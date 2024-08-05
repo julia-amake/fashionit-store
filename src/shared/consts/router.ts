@@ -1,13 +1,14 @@
-export const getRouteMain = () => '/';
-export const getRouteProfile = () => '/profile';
-export const getRouteProfileSettings = () => '/profile/settings';
-export const getRouteCatalog = () => '/catalog';
-export const getRouteCategories = () => '/categories';
-export const getRouteCategory = (id: string) => `/categories/${id}`;
-export const getRouteProduct = (id: string) => `/catalog/${id}`;
-export const getRouteAddProduct = () => '/catalog/add';
-export const getRouteEditProduct = (id: string) => `/catalog/edit/${id}`;
-export const getRouteCart = () => '/cart';
-export const getRouteOrders = () => '/orders';
-export const getRouteForbidden = () => '/forbidden';
-export const getRouteNotFound = () => '*';
+export const ROUTER_PATHS = {
+  MAIN: '/',
+  PROFILE: '/profile',
+  PROFILE_SETTINGS: '/profile/settings',
+  CATEGORIES: '/categories',
+  CATEGORY: (id: string) => `/categories/${id}`,
+  CATALOG: '/catalog',
+  PRODUCT: (id: string) => `/catalog/${id}`,
+  ADD_PRODUCT: '/catalog/add',
+  CART: '/cart',
+  ORDERS: '/orders',
+  FORBIDDEN: '/forbidden',
+  NOT_FOUND: '*',
+} as const;

@@ -1,6 +1,6 @@
-import 'src/app/styles/index.scss';
+import '../../styles/index.scss';
 import React, { FC } from 'react';
-import { ThemeProvider } from 'src/app/providers';
+import { ThemeProvider } from '../../providers';
 
 export const StyleDecorator = (Story: FC) => {
   return (

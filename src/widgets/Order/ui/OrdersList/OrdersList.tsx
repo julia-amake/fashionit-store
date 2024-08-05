@@ -2,7 +2,7 @@ import React, { memo } from 'react';
 import cn from 'clsx';
 import { Link } from 'react-router-dom';
 import { useFetchProfileQuery } from 'src/entities/Profile';
-import { getRouteProduct } from 'src/shared/consts/router';
+import { ROUTER_PATHS } from 'src/shared/consts/router';
 import { formatDate } from 'src/shared/lib/utils/formatDate';
 import { Heading } from 'src/shared/ui/Heading';
 import { PicWrapper } from 'src/shared/ui/PicWrapper';
@@ -44,7 +44,7 @@ export const OrdersList = memo(({ className }: OrdersListProps) => {
           <div className={s.status}>{OrderStatus[status]}</div>
           <div className={s.products}>
             {products.map(({ product: { id, photo } }) => (
-              <Link className={s.product} to={getRouteProduct(id)} key={id}>
+              <Link className={s.product} to={ROUTER_PATHS.PRODUCT(id)} key={id}>
                 <PicWrapper className={s.pic} pic={photo} />
               </Link>
             ))}

@@ -3,7 +3,7 @@ import cn from 'clsx';
 import { useNavigate } from 'react-router-dom';
 import { useFetchProfileQuery } from 'src/entities/Profile';
 import { clearCart, selectCartProductsList } from 'src/features/Cart';
-import { getRouteOrders } from 'src/shared/consts/router';
+import { ROUTER_PATHS } from 'src/shared/consts/router';
 import { useAppDispatch, useAppSelector } from 'src/shared/lib/hooks';
 import { Button } from 'src/shared/ui/Button';
 import { Text } from 'src/shared/ui/Text';
@@ -32,7 +32,7 @@ export const CreateOrder = memo(({ className }: CreateOrderProps) => {
   useEffect(() => {
     if (!data) return;
     dispatch(clearCart());
-    navigate(getRouteOrders());
+    navigate(ROUTER_PATHS.ORDERS);
   }, [data, dispatch, navigate]);
 
   if (!products.length || !profile || profileError || isFetching) return null;

@@ -3,7 +3,7 @@ import cn from 'clsx';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import { useFetchProfileQuery } from 'src/entities/Profile';
-import { getRouteOrders, getRouteProfileSettings } from 'src/shared/consts/router';
+import { ROUTER_PATHS } from 'src/shared/consts/router';
 import { useAppDispatch } from 'src/shared/lib/hooks';
 import { Button } from 'src/shared/ui/Button';
 import { Dropdown } from 'src/shared/ui/Dropdown';
@@ -35,10 +35,10 @@ export const UserBarMenu = memo(({ className }: UserBarMenuProps) => {
         <Dropdown.Trigger>
           <Button label={profile?.name} icon={UserIcon} size="s" variant="clean" rounded />
         </Dropdown.Trigger>
-        <Dropdown.Item action={handleNavigate(getRouteProfileSettings())}>
+        <Dropdown.Item action={handleNavigate(ROUTER_PATHS.PROFILE_SETTINGS)}>
           {t('Профиль')}
         </Dropdown.Item>
-        <Dropdown.Item action={handleNavigate(getRouteOrders())}>{t('Заказы')}</Dropdown.Item>
+        <Dropdown.Item action={handleNavigate(ROUTER_PATHS.ORDERS)}>{t('Заказы')}</Dropdown.Item>
         <Dropdown.Item action={handleLogout}>{t('Выйти')}</Dropdown.Item>
       </Dropdown>
     </div>

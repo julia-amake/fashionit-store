@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 import { selectToken } from 'src/features/Auth';
 import { DeleteProduct, EditProduct } from 'src/features/Product';
-import { getRouteAddProduct } from 'src/shared/consts/router';
+import { ROUTER_PATHS } from 'src/shared/consts/router';
 import { ActionsPanel } from 'src/shared/ui/ActionsPanel';
 import { Button } from 'src/shared/ui/Button';
 import EditIcon from 'src/shared/assets/icons/Edit.svg';
@@ -30,7 +30,7 @@ export const ProductActionsPanel = memo(({ id, className }: ProductActionsPanelP
           iconPosition="right"
           variant="secondary"
           size="xs"
-          onClick={() => navigate(getRouteAddProduct())}
+          onClick={() => navigate(ROUTER_PATHS.ADD_PRODUCT)}
         />
       )}
       {id && (
