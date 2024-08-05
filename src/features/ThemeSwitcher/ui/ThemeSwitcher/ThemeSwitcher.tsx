@@ -1,7 +1,7 @@
 import React, { memo, useContext, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { THEME, Theme } from 'src/shared/consts/theme';
-import { ThemeContext } from 'src/shared/lib/context';
+import { ThemeContext } from 'src/shared/lib/context/ThemeContext';
 import { SwitcherElem, SwitcherElems, ToggleSwitch } from 'src/shared/ui/ToggleSwitch';
 import IconMoon from 'src/shared/assets/icons/Moon.svg';
 import IconMoonFilled from 'src/shared/assets/icons/MoonFilled.svg';

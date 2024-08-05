@@ -1,7 +1,7 @@
 import React, { ReactNode, useEffect, useMemo, useState } from 'react';
 import { LOCAL_STORAGE_THEME_KEY } from 'src/shared/consts/localStorage';
 import { Theme, THEME } from 'src/shared/consts/theme';
-import { ThemeContext, ThemeContextType } from 'src/shared/lib/context';
+import { ThemeContext, ThemeContextType } from 'src/shared/lib/context/ThemeContext';
 import { containsValue } from 'src/shared/lib/predicates';
 
 interface ThemeProviderProps {

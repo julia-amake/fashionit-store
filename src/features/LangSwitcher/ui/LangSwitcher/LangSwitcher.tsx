@@ -1,6 +1,6 @@
 import React, { memo, useContext, useMemo } from 'react';
 import { LANGUAGES } from 'src/shared/consts/langs';
-import { TranslationsContext } from 'src/shared/lib/context';
+import { TranslationsContext } from 'src/shared/lib/context/TranslationsContext';
 import { SwitcherElem, SwitcherElems, ToggleSwitch } from 'src/shared/ui/ToggleSwitch';
 import IconEn from 'src/shared/assets/icons/LangEn.svg';
 import IconEnBold from 'src/shared/assets/icons/LangEnBold.svg';

@@ -3,8 +3,10 @@ import 'src/shared/config/i18n/i18n';
 import { useTranslation } from 'react-i18next';
 import { Language, LANGUAGES } from 'src/shared/consts/langs';
 import { LOCAL_STORAGE_LANG_KEY } from 'src/shared/consts/localStorage';
-import { TranslationsContext } from 'src/shared/lib/context';
-import { TranslationsContextType } from 'src/shared/lib/context/TranslationsContext';
+import {
+  TranslationsContext,
+  TranslationsContextType,
+} from 'src/shared/lib/context/TranslationsContext';
 
 interface TranslationsProviderProps {
   children: ReactNode;
