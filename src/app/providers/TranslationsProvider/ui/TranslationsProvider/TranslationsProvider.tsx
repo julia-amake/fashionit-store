@@ -4,7 +4,7 @@ import { useTranslation } from 'react-i18next';
 import { Language, LANGUAGES } from 'src/shared/consts/langs';
 import { LOCAL_STORAGE_LANG_KEY } from 'src/shared/consts/localStorage';
 import { TranslationsContext } from 'src/shared/lib/context';
-import { TranslationsContextProps } from 'src/shared/lib/context/TranslationsContext';
+import { TranslationsContextType } from 'src/shared/lib/context/TranslationsContext';
 
 interface TranslationsProviderProps {
   children: ReactNode;
@@ -34,7 +34,7 @@ export const TranslationsProvider = ({
     changeLanguage(currLang);
   }, [changeLanguage, i18n, initialLang]);
 
-  const translationsValue: TranslationsContextProps = useMemo(
+  const translationsValue: TranslationsContextType = useMemo(
     () => ({ ...i18n, changeLanguage }),
     // eslint-disable-next-line
     [changeLanguage, i18n, i18n.language]

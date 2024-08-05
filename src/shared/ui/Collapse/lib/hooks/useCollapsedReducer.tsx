@@ -13,7 +13,7 @@ export const CollapsedActionTypes = {
 } as const;
 
 interface CollapsedAction {
-  type: KeyValueOfInterface<typeof CollapsedActionTypes>;
+  type: ObjectValue<typeof CollapsedActionTypes>;
 }
 
 const statusesReducer = (state: CollapsedState, action: CollapsedAction): CollapsedState => {

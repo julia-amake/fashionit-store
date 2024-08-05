@@ -15,13 +15,13 @@ export const LangSwitcher = memo(({ className }: LangSwitcherProps) => {
   const { language, changeLanguage } = useContext(TranslationsContext);
 
   const elems = useMemo((): SwitcherElems => {
-    const handleClick = (lang: KeyValueOfInterface<typeof LANGUAGES>) => () => {
+    const handleClick = (lang: ObjectValue<typeof LANGUAGES>) => () => {
       if (language === lang.SHORT) return;
       changeLanguage(lang.SHORT);
     };
 
     const getElem = (
-      lang: KeyValueOfInterface<typeof LANGUAGES>,
+      lang: ObjectValue<typeof LANGUAGES>,
       icon: SVGType,
       iconFilled: SVGType
     ): SwitcherElem => {

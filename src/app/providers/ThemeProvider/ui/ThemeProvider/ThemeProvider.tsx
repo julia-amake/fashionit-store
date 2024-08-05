@@ -1,7 +1,7 @@
 import React, { ReactNode, useEffect, useMemo, useState } from 'react';
 import { LOCAL_STORAGE_THEME_KEY } from 'src/shared/consts/localStorage';
 import { Theme, THEME } from 'src/shared/consts/theme';
-import { ThemeContext, ThemeContextProps } from 'src/shared/lib/context';
+import { ThemeContext, ThemeContextType } from 'src/shared/lib/context';
 import { containsValue } from 'src/shared/lib/predicates';
 
 interface ThemeProviderProps {
@@ -25,7 +25,7 @@ export const ThemeProvider = ({ initialTheme, children }: ThemeProviderProps) =>
     bodyClassNames.add(theme);
   }, [theme]);
 
-  const themeValue: ThemeContextProps = useMemo(() => ({ theme, setTheme }), [theme]);
+  const themeValue: ThemeContextType = useMemo(() => ({ theme, setTheme }), [theme]);
 
   return <ThemeContext.Provider value={themeValue}>{children}</ThemeContext.Provider>;
 };

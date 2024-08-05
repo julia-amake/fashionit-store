@@ -3,4 +3,4 @@ export const THEME = {
   DARK: 'dark',
 } as const;
 
-export type Theme = KeyValueOfInterface<typeof THEME>;
+export type Theme = ObjectValue<typeof THEME>;

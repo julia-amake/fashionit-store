@@ -13,7 +13,7 @@ declare module '*.svg' {
   export default ReactComponent;
 }
 
-type KeyValueOfInterface<Interface> = Interface[keyof Interface];
+type ObjectValue<ObjectType> = ObjectType[keyof ObjectType];
 
 declare const __IS_DEV__: boolean;
 
