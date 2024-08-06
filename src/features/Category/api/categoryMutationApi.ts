@@ -1,7 +1,7 @@
 import { categoriesApi } from 'src/entities/Category/api/categoriesApi';
 import { CategoryParams } from 'src/entities/Category/model/types/categoriesTypes';
 import { Category } from 'src/entities/Product';
-import { transformErrorResponse } from 'src/shared/lib/utils/axios/axiosErrorHandler';
+import { transformErrorResponse } from 'src/shared/lib/utils/transformErrorResponse';
 
 const categoryMutationApi = categoriesApi.injectEndpoints({
   endpoints: (build) => ({

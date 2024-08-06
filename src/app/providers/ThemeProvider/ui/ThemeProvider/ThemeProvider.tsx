@@ -2,7 +2,7 @@ import React, { ReactNode, useEffect, useMemo, useState } from 'react';
 import { LOCAL_STORAGE_THEME_KEY } from 'src/shared/consts/localStorage';
 import { Theme, THEME } from 'src/shared/consts/theme';
 import { ThemeContext, ThemeContextType } from 'src/shared/lib/context/ThemeContext';
-import { containsValue } from 'src/shared/lib/predicates';
+import { isObjContainsValue } from 'src/shared/lib/utils/isObjContainsValue';
 
 interface ThemeProviderProps {
   children: ReactNode;
@@ -14,7 +14,7 @@ export const ThemeProvider = ({ initialTheme, children }: ThemeProviderProps) =>
 
   useEffect(() => {
     const storageTheme = localStorage.getItem(LOCAL_STORAGE_THEME_KEY) as Theme;
-    setTheme(containsValue(THEME, storageTheme) ? storageTheme : THEME.LIGHT);
+    setTheme(isObjContainsValue(THEME, storageTheme) ? storageTheme : THEME.LIGHT);
   }, []);
 
   useEffect(() => {

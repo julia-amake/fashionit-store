@@ -1,7 +1,7 @@
 import React, { memo } from 'react';
 import { useFetchCategoriesQuery } from 'src/entities/Category';
 import { Category } from 'src/entities/Product';
-import { getValidates } from 'src/shared/lib/utils/validation/common';
+import { getValidates } from 'src/shared/lib/utils/validation';
 import { Select, SelectOption, SelectProps } from 'src/shared/ui/Select/Select';
 
 interface ProductCategorySelectProps extends Omit<SelectProps<string>, 'options'> {

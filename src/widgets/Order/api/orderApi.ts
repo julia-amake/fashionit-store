@@ -1,5 +1,6 @@
 import { rtkApi } from 'src/shared/api/rtkApi';
-import { stringifyNestedObjects, transformErrorResponse } from 'src/shared/lib/utils';
+import { stringifyNestedObjects } from 'src/shared/lib/utils/stringifyNestedObjects';
+import { transformErrorResponse } from 'src/shared/lib/utils/transformErrorResponse';
 import {
   Order,
   OrderCreateRequest,

@@ -7,7 +7,7 @@ import {
   useCreateCategoryMutation,
   useEditCategoryMutation,
 } from 'src/features/Category/api/categoryMutationApi';
-import { getValidates } from 'src/shared/lib/utils/validation/common';
+import { getValidates } from 'src/shared/lib/utils/validation';
 import { Button } from 'src/shared/ui/Button';
 import { FileUploader } from 'src/shared/ui/FileUploader';
 import { Form } from 'src/shared/ui/Form';

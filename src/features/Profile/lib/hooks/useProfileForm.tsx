@@ -3,7 +3,7 @@ import { useFormik } from 'formik';
 import { FormikErrors } from 'formik/dist';
 import { useTranslation } from 'react-i18next';
 import { ProfileRequest, useFetchProfileQuery } from 'src/entities/Profile';
-import { isNotDefinedString } from 'src/shared/lib/utils/validation/common';
+import { isNotDefinedString } from 'src/shared/lib/utils/validation';
 import { useEditProfileMutation } from '../../api/profileMutationApi';
 
 type ProfileFormErrors = FormikErrors<ProfileRequest>;

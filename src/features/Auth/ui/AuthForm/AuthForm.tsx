@@ -1,5 +1,5 @@
 import React, { memo } from 'react';
-import { getValidates } from 'src/shared/lib/utils/validation/common';
+import { getValidates } from 'src/shared/lib/utils/validation';
 import { FormProps } from 'src/shared/types/formTypes';
 import { Button } from 'src/shared/ui/Button';
 import { Form } from 'src/shared/ui/Form';

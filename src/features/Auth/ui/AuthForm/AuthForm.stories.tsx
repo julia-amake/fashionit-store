@@ -2,7 +2,6 @@ import React from 'react';
 import type { Meta } from '@storybook/react';
 import { StoryFn } from '@storybook/react';
 import { FormikConfig, useFormik } from 'formik/dist';
-import { validate as formValidate } from 'src/features/Auth/lib/utils/validate';
 import { AuthForm, AuthFormValues } from './AuthForm';
 
 const meta: Meta<typeof AuthForm> = {
@@ -26,7 +25,6 @@ const {
     console.log(values);
     resetForm({ values: initialValues });
   },
-  validate: formValidate,
 };
 
 const Template: StoryFn<typeof AuthForm> = (args) => {

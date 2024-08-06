@@ -1,5 +1,5 @@
 import { rtkApi } from 'src/shared/api/rtkApi';
-import { transformErrorResponse } from 'src/shared/lib/utils';
+import { transformErrorResponse } from 'src/shared/lib/utils/transformErrorResponse';
 import { ChangePasswordRequest, ChangePasswordResponse } from '../model/types/changePasswordTypes';
 
 const changePasswordApi = rtkApi.injectEndpoints({

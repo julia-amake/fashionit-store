@@ -1,5 +1,5 @@
 import { ProductParams } from 'src/entities/Product/model/types/productTypes';
-import { isNotDefinedString } from 'src/shared/lib/utils/validation/common';
+import { isNotDefinedString } from 'src/shared/lib/utils/validation';
 
 type ProductFormErrors = Record<keyof ProductParams, string>;
 

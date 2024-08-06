@@ -4,7 +4,7 @@ import {
   ProductsResponse,
 } from 'src/entities/Product/model/types/productTypes';
 import { rtkApi } from 'src/shared/api/rtkApi';
-import { transformErrorResponse } from 'src/shared/lib/utils/axios/axiosErrorHandler';
+import { transformErrorResponse } from 'src/shared/lib/utils/transformErrorResponse';
 
 const cartApi = rtkApi.injectEndpoints({
   endpoints: (build) => ({

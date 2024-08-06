@@ -3,7 +3,7 @@ import cn from 'clsx';
 import { Link } from 'react-router-dom';
 import { Product } from 'src/entities/Product';
 import { ROUTER_PATHS } from 'src/shared/consts/router';
-import { formatNumberToLocal } from 'src/shared/lib/utils';
+import { formatNumberToLocal } from 'src/shared/lib/utils/formatNumberToLocal';
 import { PicWrapper } from 'src/shared/ui/PicWrapper';
 import s from './ProductListItem.module.scss';
 

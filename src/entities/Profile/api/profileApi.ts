@@ -1,5 +1,5 @@
 import { rtkApi } from 'src/shared/api/rtkApi';
-import { transformErrorResponse } from 'src/shared/lib/utils/axios/axiosErrorHandler';
+import { transformErrorResponse } from 'src/shared/lib/utils/transformErrorResponse';
 import { Profile } from '../model/types/profileTypes';
 
 export const profileApi = rtkApi.injectEndpoints({

@@ -1,6 +1,6 @@
 import React, { memo } from 'react';
 import cn from 'clsx';
-import { getValidates } from 'src/shared/lib/utils/validation/common';
+import { getValidates } from 'src/shared/lib/utils/validation';
 import { TextField, TextFieldProps } from 'src/shared/ui/TextField';
 import s from './ProductField.module.scss';
 

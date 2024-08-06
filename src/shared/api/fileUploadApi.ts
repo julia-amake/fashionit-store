@@ -1,4 +1,4 @@
-import { transformErrorResponse } from '../lib/utils';
+import { transformErrorResponse } from '../lib/utils/transformErrorResponse';
 import { rtkApi } from './rtkApi';
 
 export interface FileUploadResponse {

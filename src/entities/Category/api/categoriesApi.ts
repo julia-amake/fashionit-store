@@ -4,7 +4,7 @@ import {
 } from 'src/entities/Category/model/types/categoriesTypes';
 import { Category } from 'src/entities/Product';
 import { rtkApi } from 'src/shared/api/rtkApi';
-import { transformErrorResponse } from 'src/shared/lib/utils/axios/axiosErrorHandler';
+import { transformErrorResponse } from 'src/shared/lib/utils/transformErrorResponse';
 import { Filter } from 'src/shared/types/filterTypes';
 
 const fetchCategoriesParams: CategoriesRequest = (() => {

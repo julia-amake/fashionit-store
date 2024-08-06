@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useFormik } from 'formik';
 import { useTranslation } from 'react-i18next';
-import { isNotDefinedString } from 'src/shared/lib/utils/validation/common';
+import { isNotDefinedString } from 'src/shared/lib/utils/validation';
 import { useChangePasswordMutation } from '../../api/changePasswordApi';
 import { ChangePasswordFormValues } from '../../ui/ChangePasswordForm/ChangePasswordForm';
 

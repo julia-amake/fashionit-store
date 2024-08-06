@@ -39,7 +39,6 @@ export const useUserBarAuthWithQuery = (mode: UserBarAuthMode, onSubmit?: () => 
   const manager = useFormik<AuthFormValues>({
     initialValues,
     onSubmit: handleSubmit,
-    validate: undefined,
   });
 
   useEffect(() => {
