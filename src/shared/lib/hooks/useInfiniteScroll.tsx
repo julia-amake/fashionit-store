@@ -14,13 +14,13 @@ export const useInfiniteScroll = ({
   isVisible: boolean;
 } => {
   const [isVisible, setIsVisible] = useState(false);
-  const observerRef = useRef<IntersectionObserver | null>(null);
+  const observerRef = useRef<IntersectionObserver>();
+
+  const wrapperElement = wrapperRef?.current || null;
+  const triggerElement = triggerRef.current;
 
   useEffect(() => {
-    const wrapperElement = wrapperRef?.current || null;
-    const triggerElement = triggerRef.current;
     let observer = observerRef.current;
-
     if (!triggerElement) return;
 
     observer = new IntersectionObserver(
@@ -40,8 +40,8 @@ export const useInfiniteScroll = ({
 
     observer.observe(triggerElement);
 
-    return () => observer?.disconnect();
-  }, [action, triggerRef, wrapperRef]);
+    return () => observer.disconnect();
+  }, [action, triggerElement, wrapperElement]);
 
   return { isVisible };
 };

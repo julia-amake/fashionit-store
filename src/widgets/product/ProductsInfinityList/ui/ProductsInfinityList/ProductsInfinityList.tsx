@@ -1,4 +1,4 @@
-import React, { memo, useRef } from 'react';
+import React, { memo, useCallback, useRef } from 'react';
 import {
   ProductsList,
   selectCatalogFilter,
@@ -24,9 +24,7 @@ export const ProductsInfinityList = memo(({ className }: ProductsInfinityListPro
   const hasMore = useAppSelector(selectCatalogHasMore);
   const dispatch = useAppDispatch();
 
-  const handleLoadMore = () => {
-    dispatch(setCurrentPage());
-  };
+  const handleLoadMore = useCallback(() => dispatch(setCurrentPage()), [dispatch]);
 
   const triggerRef = useRef<HTMLButtonElement | null>(null);
   const wrapperRef = useRef<HTMLDivElement | null>(null);
