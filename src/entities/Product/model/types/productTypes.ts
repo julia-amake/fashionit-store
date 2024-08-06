@@ -1,9 +1,4 @@
-import {
-  Filter,
-  FilterBaseResponse,
-  SortingField,
-  SortingType,
-} from 'src/shared/types/filterTypes';
+import { Filter, SortingField, SortingType } from 'src/shared/types/filterTypes';
 import { CategoryName } from '../../mocks/productsMocks';
 
 export interface Category {
@@ -41,10 +36,6 @@ export interface CatalogSchema {
 
 export interface ProductsFilters extends Filter {
   categoryIds?: string[];
-}
-
-export interface ProductsResponse extends FilterBaseResponse {
-  data: Product[];
 }
 
 export interface ProductsRequest extends Omit<ProductsFilters, 'pagination' | 'sorting' | 'ids'> {

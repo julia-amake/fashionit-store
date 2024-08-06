@@ -1,12 +1,8 @@
 import { rtkApi } from 'src/shared/api/rtkApi';
 import { stringifyNestedObjects } from 'src/shared/lib/utils/stringifyNestedObjects';
 import { transformErrorResponse } from 'src/shared/lib/utils/transformErrorResponse';
-import {
-  Order,
-  OrderCreateRequest,
-  OrdersFilter,
-  OrdersFilterResponse,
-} from '../model/types/orderTypes';
+import { FilterResponse } from 'src/shared/types/filterTypes';
+import { Order, OrderCreateRequest, OrdersFilter } from '../model/types/orderTypes';
 
 const orderApi = rtkApi.injectEndpoints({
   endpoints: (build) => ({
@@ -30,7 +26,7 @@ const orderApi = rtkApi.injectEndpoints({
           params: stringifyNestedObjects(updatedArgs),
         };
       },
-      transformResponse: (rawResult: OrdersFilterResponse) => rawResult.data,
+      transformResponse: (rawResult: FilterResponse<Order>) => rawResult.data,
       transformErrorResponse,
       providesTags: ['Order'],
     }),

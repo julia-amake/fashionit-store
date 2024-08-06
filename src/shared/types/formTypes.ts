@@ -9,4 +9,4 @@ export interface FormProps<Values = unknown> {
   autoFocusElement?: MutableRefObject<HTMLInputElement>;
 }
 
-export type Help = null | ReactNode;
+export type Help = ReactNode | null;

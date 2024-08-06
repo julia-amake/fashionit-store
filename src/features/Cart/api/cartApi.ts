@@ -1,14 +1,15 @@
 import {
+  Product,
   ProductsFilters,
   ProductsRequest,
-  ProductsResponse,
 } from 'src/entities/Product/model/types/productTypes';
 import { rtkApi } from 'src/shared/api/rtkApi';
 import { transformErrorResponse } from 'src/shared/lib/utils/transformErrorResponse';
+import { FilterResponse } from 'src/shared/types/filterTypes';
 
 const cartApi = rtkApi.injectEndpoints({
   endpoints: (build) => ({
-    fetchCartProducts: build.query<ProductsResponse, Pick<ProductsFilters, 'ids'>>({
+    fetchCartProducts: build.query<FilterResponse<Product>, Pick<ProductsFilters, 'ids'>>({
       query: ({ ids }) => {
         const prepareParams: ProductsRequest = {
           ids: JSON.stringify(ids),

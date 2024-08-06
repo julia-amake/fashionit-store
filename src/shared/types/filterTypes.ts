@@ -29,7 +29,8 @@ export interface Filter {
   sorting?: Sorting;
 }
 
-export interface FilterRequest extends Pick<Filter, 'name'> {
+export interface FilterRequest {
+  name?: string;
   ids?: string;
   pagination?: string;
   createdAt?: string;
@@ -37,7 +38,8 @@ export interface FilterRequest extends Pick<Filter, 'name'> {
   sorting?: string;
 }
 
-export interface FilterBaseResponse {
+export interface FilterResponse<DataType> {
+  data: DataType[];
   pagination: PaginationResponse;
   sorting: Required<Sorting>;
 }

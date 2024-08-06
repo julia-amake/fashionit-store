@@ -1,8 +1,9 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
-import { fetchProducts } from 'src/entities/Product';
+import { fetchProducts, Product } from 'src/entities/Product';
 import { logout, signInRTK, signUpRTK } from 'src/features/Auth';
 import { createUpdateProduct } from 'src/features/Product';
-import { CatalogSchema, ProductsFilters, ProductsResponse } from '../types/productTypes';
+import { FilterResponse } from 'src/shared/types/filterTypes';
+import { CatalogSchema, ProductsFilters } from '../types/productTypes';
 
 const initialState: CatalogSchema = {
   products: null,
@@ -50,7 +51,7 @@ const catalogSlice = createSlice({
               data,
               pagination: { pageNumber, pageSize, total },
             },
-          }: PayloadAction<ProductsResponse>
+          }: PayloadAction<FilterResponse<Product>>
         ) => {
           state.products = [...(state.products || []), ...data];
           state.isLoading = false;

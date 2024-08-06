@@ -1,7 +1,7 @@
 import { Product } from 'src/entities/Product';
 import { User } from 'src/entities/Profile';
 import { CartProduct } from 'src/features/Cart';
-import { Filter, FilterBaseResponse } from 'src/shared/types/filterTypes';
+import { Filter } from 'src/shared/types/filterTypes';
 
 export interface OrderProduct {
   _id: string; // служебный id, не id продукта
@@ -36,10 +36,6 @@ export interface OrdersFilter extends Omit<Filter, 'name'> {
   productIds?: string[];
   userId?: string;
   status?: OrderStatusKeys;
-}
-
-export interface OrdersFilterResponse extends FilterBaseResponse {
-  data: Order[];
 }
 
 export interface OrderCreateRequest {

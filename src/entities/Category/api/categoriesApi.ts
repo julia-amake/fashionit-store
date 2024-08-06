@@ -1,13 +1,10 @@
-import {
-  CategoriesRequest,
-  CategoriesResponse,
-} from 'src/entities/Category/model/types/categoriesTypes';
 import { Category } from 'src/entities/Product';
 import { rtkApi } from 'src/shared/api/rtkApi';
+import { stringifyNestedObjects } from 'src/shared/lib/utils/stringifyNestedObjects';
 import { transformErrorResponse } from 'src/shared/lib/utils/transformErrorResponse';
-import { Filter } from 'src/shared/types/filterTypes';
+import { Filter, FilterRequest, FilterResponse } from 'src/shared/types/filterTypes';
 
-const fetchCategoriesParams: CategoriesRequest = (() => {
+const fetchCategoriesParams: FilterRequest = (() => {
   const params: Filter = {
     sorting: {
       type: 'ASC',
@@ -19,11 +16,7 @@ const fetchCategoriesParams: CategoriesRequest = (() => {
     },
   };
 
-  return {
-    ...params,
-    sorting: JSON.stringify(params.sorting),
-    pagination: JSON.stringify(params.pagination),
-  };
+  return stringifyNestedObjects(params);
 })();
 
 export const categoriesApi = rtkApi.injectEndpoints({
@@ -35,7 +28,7 @@ export const categoriesApi = rtkApi.injectEndpoints({
       }),
       providesTags: [{ type: 'Category', id: 'List' }],
       transformErrorResponse,
-      transformResponse: (rawResponse: CategoriesResponse) => rawResponse.data,
+      transformResponse: (rawResponse: FilterResponse<Category>) => rawResponse.data,
     }),
     fetchCategoryById: build.query<Category, string>({
       query: (id) => ({

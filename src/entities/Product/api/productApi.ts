@@ -2,14 +2,14 @@ import {
   Product,
   ProductsFilters,
   ProductsRequest,
-  ProductsResponse,
 } from 'src/entities/Product/model/types/productTypes';
 import { rtkApi } from 'src/shared/api/rtkApi';
 import { transformErrorResponse } from 'src/shared/lib/utils/transformErrorResponse';
+import { FilterResponse } from 'src/shared/types/filterTypes';
 
 const productApi = rtkApi.injectEndpoints({
   endpoints: (build) => ({
-    fetchProducts: build.query<ProductsResponse, ProductsFilters>({
+    fetchProducts: build.query<FilterResponse<Product>, ProductsFilters>({
       query: ({ pagination, sorting, ids, ...otherParams }) => {
         const prepareParams: ProductsRequest = {
           ...otherParams,
