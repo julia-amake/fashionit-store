@@ -5,10 +5,10 @@ import { useModalByRoute } from 'src/shared/lib/hooks/useModalByRoute';
 import { Modal } from 'src/shared/ui/Modal';
 
 export const AddProductPage = memo(() => {
-  const { isVisible, close } = useModalByRoute(ROUTER_PATHS.ADD_PRODUCT);
+  const { isOpen, close } = useModalByRoute(ROUTER_PATHS.ADD_PRODUCT);
 
   return (
-    <Modal visible={isVisible} onClose={close}>
+    <Modal visible={isOpen} onClose={close}>
       <ProductForm onSubmitAction={close} />
     </Modal>
   );

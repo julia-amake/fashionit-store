@@ -1,20 +1,23 @@
-import { useMemo, useState } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 
-interface useModalResult {
+interface UseModalResult {
   isOpen: boolean;
   open: () => void;
   close: () => void;
 }
 
-export const useModal = (open = false): useModalResult => {
-  const [isOpen, setIsOpen] = useState(open);
+export const useModal = (opened = false): UseModalResult => {
+  const [isOpen, setIsOpen] = useState(opened);
+
+  const open = useCallback(() => setIsOpen(true), []);
+  const close = useCallback(() => setIsOpen(false), []);
 
   return useMemo(
     () => ({
       isOpen,
-      open: () => setIsOpen(true),
-      close: () => setIsOpen(false),
+      open,
+      close,
     }),
-    [isOpen]
+    [isOpen, open, close]
   );
 };
