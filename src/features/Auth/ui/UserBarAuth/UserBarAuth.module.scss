@@ -10,3 +10,14 @@
     text-decoration: underline;
   }
 }
+
+.link {
+  font-weight: 500;
+  font-size: 11px;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}

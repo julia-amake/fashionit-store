@@ -1,15 +1,11 @@
 :root {
-  --color-accent: #5b57d7;
-  --color-accent-bg: rgba(91, 87, 215, 0.2);
   --color-image-placeholder: #F3F4F1;
   --color--danger: #FF6A55;
-
-  --header-height: 80px;
-
-  --product-ratio: 1 / 1.25;
-
   --color-overlay: #2e2e2f;
   --color-light: #FFFFFF;
+
+  --header-height: 80px;
+  --product-ratio: 1 / 1.25;
 }
 
 .light {
@@ -20,7 +16,6 @@
   --color-gray-3: #f3f2f2;
   --skeleton-1: hsl(80, 5%, 97%);
   --skeleton-2: hsl(80, 5%, 92%);
-  --box-shadow-cards: 0 0 14px -4px rgba(0, 0, 0, 0.05), 0px 32px 48px -8px rgba(0, 0, 0, 0.1);
 }
 
 .dark {
@@ -31,5 +26,4 @@
   --color-gray-3: #252525;
   --skeleton-1: hsl(80, 1%, 15%);
   --skeleton-2: hsl(80, 1%, 10%);
-  --box-shadow-cards: 0 0 14px -4px rgba(255, 255, 255, 0.1), 0px 32px 48px -8px rgba(255, 255, 255, 0.15);
 }

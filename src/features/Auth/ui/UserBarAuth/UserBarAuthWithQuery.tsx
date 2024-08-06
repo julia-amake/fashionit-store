@@ -5,7 +5,6 @@ import { LOCAL_STORAGE_TOKEN_KEY } from 'src/shared/consts/localStorage';
 import { useAppDispatch } from 'src/shared/lib/hooks/redux';
 import { Button } from 'src/shared/ui/Button';
 import { Modal } from 'src/shared/ui/Modal';
-import menuStyles from 'src/shared/styles/common/menuList.module.scss';
 import { useUserBarAuthWithQuery } from '../../lib/hooks/useUserBarAuthWithQuery';
 import { login } from '../../model/slices/userSlice';
 import { AuthForm } from '../AuthForm';
@@ -54,7 +53,7 @@ export const UserBarAuthWithQuery = memo(({ className }: UserBarAuthProps) => {
 
   return (
     <div className={cn(s.outer, className)}>
-      <Button className={menuStyles.link} label={t('Войти')} variant="clean" onClick={handleOpen} />
+      <Button className={s.link} label={t('Войти')} variant="clean" onClick={handleOpen} />
       <Modal visible={isOpen} onClose={handleClose}>
         <AuthForm title={isSingInMode ? t('Вход') : t('Регистрация')} formManager={formManager} />
         <div className={s.footer}>

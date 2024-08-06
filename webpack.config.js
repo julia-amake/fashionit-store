@@ -85,7 +85,7 @@ module.exports = (_, args) => {
             {
               loader: 'sass-loader',
               options: {
-                additionalData: '@import "src/shared/styles/common.scss";',
+                additionalData: '@import "src/shared/styles/index.scss";',
               },
             },
           ],
