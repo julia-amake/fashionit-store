@@ -1,6 +1,6 @@
 import React, { memo, ReactNode, useContext } from 'react';
 import cn from 'clsx';
-import { DropdownContext } from 'src/shared/ui/Dropdown/Dropdown';
+import { DropdownContext } from '../lib/useDropdownContext';
 import s from './Dropdown.module.scss';
 
 interface DropdownTriggerProps {

@@ -1,2 +1,1 @@
-export { Dropdown } from './Dropdown';
-export { type DropdownItemProps } from './DropdownItem';
+export { Dropdown } from './ui/Dropdown';
