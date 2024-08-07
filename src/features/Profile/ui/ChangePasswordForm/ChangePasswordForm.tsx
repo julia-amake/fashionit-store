@@ -94,7 +94,9 @@ export const ChangePasswordForm = memo(({ className }: ChangePasswordFormProps) 
           {status}
         </Text>
       )}
-      <Button label={t('Сохранить изменения')} onClick={submitForm} disabled={isLoading} />
+      <Button onClick={submitForm} disabled={isLoading}>
+        {t('Сохранить изменения')}
+      </Button>
     </Form>
   );
 });

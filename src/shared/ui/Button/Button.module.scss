@@ -7,8 +7,27 @@
   white-space: nowrap;
   isolation: isolate;
 
-  &_full {
-    width: 100%;
+  &_size {
+    &-xs {
+      gap: 8px;
+      padding: 11px 18px;
+      font-size: 12px;
+      line-height: 15px;
+    }
+
+    &-s {
+      gap: 10px;
+      padding: 12px 20px;
+      font-size: 14px;
+      line-height: 20px;
+    }
+
+    &-m {
+      gap: 12px;
+      padding: 15px 24px;
+      font-size: 15px;
+      line-height: 20px;
+    }
   }
 
   &_variant {
@@ -52,29 +71,6 @@
     }
   }
 
-  &_size {
-    &-xs {
-      gap: 8px;
-      padding: 11px 18px;
-      font-size: 12px;
-      line-height: 15px;
-    }
-
-    &-s {
-      gap: 10px;
-      padding: 12px 20px;
-      font-size: 14px;
-      line-height: 20px;
-    }
-
-    &-m {
-      gap: 12px;
-      padding: 15px 24px;
-      font-size: 15px;
-      line-height: 20px;
-    }
-  }
-
   &_noLabel {
     &-xs {
       padding: 9px;
@@ -93,13 +89,17 @@
     padding: 0;
   }
 
+  &_rounded {
+    border-radius: 90px;
+  }
+
   &_disabled {
     cursor: auto;
     opacity: 0.15;
   }
 
-  &_rounded {
-    border-radius: 90px;
+  &_full {
+    width: 100%;
   }
 }
 

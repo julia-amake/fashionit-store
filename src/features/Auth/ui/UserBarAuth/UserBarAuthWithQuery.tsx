@@ -53,18 +53,16 @@ export const UserBarAuthWithQuery = memo(({ className }: UserBarAuthProps) => {
 
   return (
     <div className={cn(s.outer, className)}>
-      <Button className={s.link} label={t('Войти')} variant="clean" onClick={handleOpen} />
+      <Button className={s.link} variant="clean" onClick={handleOpen}>
+        {t('Войти')}
+      </Button>
       <Modal visible={isOpen} onClose={handleClose}>
         <AuthForm title={isSingInMode ? t('Вход') : t('Регистрация')} formManager={formManager} />
         <div className={s.footer}>
           {isSingInMode ? t('Еще нет аккаунта?') : t('Уже есть аккаунт?')}
-          <Button
-            className={s.btn}
-            label={isSingInMode ? t('Зарегистрироваться') : t('Войти')}
-            variant="clean"
-            size="s"
-            onClick={handleToggleMode}
-          />
+          <Button className={s.btn} variant="clean" size="s" onClick={handleToggleMode}>
+            {isSingInMode ? t('Зарегистрироваться') : t('Войти')}
+          </Button>
         </div>
       </Modal>
     </div>

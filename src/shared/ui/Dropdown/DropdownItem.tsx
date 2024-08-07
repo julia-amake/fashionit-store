@@ -21,12 +21,13 @@ export const DropdownItem = memo(({ children, icon, action }: DropdownItemProps)
   return (
     <Button
       className={cn(s.item)}
-      label={children}
       icon={icon}
       variant="clean"
       textPosition="left"
       onClick={handleClick}
-    />
+    >
+      {children}
+    </Button>
   );
 });
 

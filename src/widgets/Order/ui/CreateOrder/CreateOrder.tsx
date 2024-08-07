@@ -44,7 +44,9 @@ export const CreateOrder = memo(({ className }: CreateOrderProps) => {
           {error as string}
         </Text>
       )}
-      <Button className={s.btn} label="Оформить заказ" onClick={handleClick} disabled={isLoading} />
+      <Button className={s.btn} onClick={handleClick} disabled={isLoading}>
+        Оформить заказ
+      </Button>
     </div>
   );
 });

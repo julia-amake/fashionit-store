@@ -110,10 +110,11 @@ export const CategoryForm = memo(({ onSubmitAction, id, className }: CategoryFor
         </Text>
       )}
       <Button
-        label="Сохранить"
         onClick={submitForm}
         disabled={categoryLoading || createCategoryLoading || editCategoryLoading}
-      />
+      >
+        Сохранить
+      </Button>
     </Form>
   );
 });

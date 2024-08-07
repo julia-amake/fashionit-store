@@ -19,7 +19,7 @@ const Template: StoryFn<typeof Form> = () => {
       <Form>
         <TextField label="Поле 1" />
         <TextField label="Поле 2" />
-        <Button label="Сохранить" />
+        <Button>Сохранить</Button>
       </Form>
     </div>
   );

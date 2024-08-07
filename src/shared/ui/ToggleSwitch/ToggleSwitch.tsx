@@ -36,10 +36,11 @@ export const ToggleSwitch = memo(({ firstElem, lastElem, className }: SwitcherPr
           variant="clean"
           size="xs"
           title={title}
-          label={label}
           {...(icon ? { icon: isActive ? iconFilled : icon } : {})}
           onClick={onClick}
-        />
+        >
+          {label}
+        </Button>
       </div>
     );
   };

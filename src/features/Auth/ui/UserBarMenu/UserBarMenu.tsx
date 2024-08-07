@@ -33,7 +33,9 @@ export const UserBarMenu = memo(({ className }: UserBarMenuProps) => {
     <div className={cn(s.outer, className)}>
       <Dropdown position="right">
         <Dropdown.Trigger>
-          <Button label={profile?.name} icon={UserIcon} size="s" variant="clean" rounded />
+          <Button icon={UserIcon} size="s" variant="clean">
+            {profile?.name}
+          </Button>
         </Dropdown.Trigger>
         <Dropdown.Item action={handleNavigate(ROUTER_PATHS.PROFILE_SETTINGS)}>
           {t('Профиль')}

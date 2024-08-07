@@ -58,12 +58,9 @@ export const ProfileForm = memo(({ className }: ProfileFormProps) => {
           {status}
         </Text>
       )}
-      <Button
-        label={t('Сохранить изменения')}
-        onClick={submitForm}
-        full={false}
-        disabled={isSaving || isLoading}
-      />
+      <Button onClick={submitForm} full={false} disabled={isSaving || isLoading}>
+        {t('Сохранить изменения')}
+      </Button>
     </Form>
   );
 });

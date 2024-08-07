@@ -43,13 +43,14 @@ export const ProductsInfinityList = memo(({ className }: ProductsInfinityListPro
       {hasMore && !isFetching && products && (
         <Button
           className={s.button}
-          label="Показать еще"
           variant="secondary"
           size="m"
           disabled={isFetching}
           ref={triggerRef}
           onClick={handleLoadMore}
-        />
+        >
+          Показать еще
+        </Button>
       )}
     </div>
   );

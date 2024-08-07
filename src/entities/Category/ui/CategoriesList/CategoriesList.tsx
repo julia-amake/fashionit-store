@@ -43,7 +43,9 @@ export const CategoriesList = memo(({ className }: CategoriesListProps) => {
             <Heading className={s.title} as="h3" size="h5" uppercase>
               {name}
             </Heading>
-            <Button className={s.btn} label="Перейти" size="xs" />
+            <Button className={s.btn} size="xs">
+              Перейти
+            </Button>
           </div>
         </Link>
       ))}

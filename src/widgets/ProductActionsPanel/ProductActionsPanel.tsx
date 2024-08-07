@@ -25,13 +25,14 @@ export const ProductActionsPanel = memo(({ id, className }: ProductActionsPanelP
     <ActionsPanel className={className}>
       {!id && (
         <Button
-          label={t('Добавить товар')}
           icon={EditIcon}
           iconPosition="right"
           variant="secondary"
           size="xs"
           onClick={() => navigate(ROUTER_PATHS.ADD_PRODUCT)}
-        />
+        >
+          {t('Добавить товар')}
+        </Button>
       )}
       {id && (
         <>

@@ -38,8 +38,12 @@ export const ConfirmModal = memo(
             <Heading size="h6">{t(title)}</Heading>
             {desc && <Text>{t(desc)}</Text>}
             <div className={s.buttons}>
-              <Button label={t(cancelText)} size="s" variant="secondary" onClick={close} />
-              <Button label={t(confirmText)} size="s" disabled={disabled} onClick={onConfirm} />
+              <Button size="s" variant="secondary" onClick={close}>
+                {t(cancelText)}
+              </Button>
+              <Button size="s" disabled={disabled} onClick={onConfirm}>
+                {t(confirmText)}
+              </Button>
             </div>
           </div>
         </Modal>

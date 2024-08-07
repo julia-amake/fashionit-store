@@ -15,14 +15,9 @@ export const EditCreateCategory = memo(({ id, className }: EditCreateCategoryPro
 
   return (
     <div className={className}>
-      <Button
-        label={id ? 'Редактировать' : 'Добавить категорию'}
-        icon={EditIcon}
-        iconPosition="right"
-        variant="secondary"
-        size="xs"
-        onClick={open}
-      />
+      <Button icon={EditIcon} iconPosition="right" variant="secondary" size="xs" onClick={open}>
+        {id ? 'Редактировать' : 'Добавить категорию'}
+      </Button>
       <Modal visible={isOpen} onClose={close}>
         <CategoryForm onSubmitAction={close} id={id} />
       </Modal>

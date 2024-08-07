@@ -32,7 +32,9 @@ export const CartButton = memo(({ id, size = 's', disabled, className }: CartBut
   }, [dispatch, id]);
 
   const button = (() => (
-    <Button label={t('В корзину')} full icon={BugIcon} size={size} onClick={handleAddProduct} />
+    <Button full icon={BugIcon} size={size} onClick={handleAddProduct}>
+      {t('В корзину')}
+    </Button>
   ))();
 
   const controls = (() => (

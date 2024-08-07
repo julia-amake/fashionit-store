@@ -26,14 +26,9 @@ export const DeleteCategory = memo(({ id, className }: DeleteCategoryProps) => {
 
   const button = useCallback(
     (open: () => void) => (
-      <Button
-        label="Удалить"
-        iconPosition="right"
-        icon={CloseIcon}
-        variant="secondary"
-        size="xs"
-        onClick={open}
-      />
+      <Button iconPosition="right" icon={CloseIcon} variant="secondary" size="xs" onClick={open}>
+        Удалить
+      </Button>
     ),
     []
   );

@@ -28,14 +28,9 @@ export const DeleteProduct = memo(({ id, className }: DeleteProductProps) => {
 
   const button = useCallback(
     (open: () => void) => (
-      <Button
-        label={t('Удалить')}
-        iconPosition="right"
-        icon={CloseIcon}
-        variant="secondary"
-        size="xs"
-        onClick={open}
-      />
+      <Button iconPosition="right" icon={CloseIcon} variant="secondary" size="xs" onClick={open}>
+        {t('Удалить')}
+      </Button>
     ),
     [t]
   );

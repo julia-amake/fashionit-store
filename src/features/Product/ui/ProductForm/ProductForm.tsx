@@ -160,11 +160,9 @@ export const ProductForm = memo(({ onSubmitAction, id, className }: ProductFormP
           {status}
         </Text>
       )}
-      <Button
-        label="Сохранить"
-        onClick={submitForm}
-        disabled={productIsLoading || editProductIsLoading}
-      />
+      <Button onClick={submitForm} disabled={productIsLoading || editProductIsLoading}>
+        Сохранить
+      </Button>
     </Form>
   );
 });
