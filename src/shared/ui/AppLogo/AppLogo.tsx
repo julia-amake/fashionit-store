@@ -1,7 +1,7 @@
 import React, { memo } from 'react';
 import cn from 'clsx';
 import { Link } from 'react-router-dom';
-import { ROUTER_PATHS } from 'src/shared/consts/router';
+import { ROUTER_PATHS } from '../../consts/router';
 import s from './AppLogo.module.scss';
 
 interface AppLogoProps {

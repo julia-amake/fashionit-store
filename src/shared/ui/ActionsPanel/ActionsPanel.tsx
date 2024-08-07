@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 import cn from 'clsx';
 import s from './ActionsPanel.module.scss';
 
 interface ActionsPanelProps {
-  children: React.ReactNode;
+  children: ReactNode;
   className?: string;
 }
 
