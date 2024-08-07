@@ -1,7 +1,7 @@
 import React, { memo } from 'react';
 import cn from 'clsx';
 import { PicWrapperSkeleton } from 'src/shared/ui/PicWrapper';
-import { Skeleton } from 'src/shared/ui/Skeleton';
+import { Skeleton } from 'src/shared/ui/Skeleton/Skeleton';
 import s from '../ProductListItem.module.scss';
 
 interface ProductListItemSkeletonProps {

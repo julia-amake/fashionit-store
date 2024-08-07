@@ -6,8 +6,6 @@ interface PreloaderProps {
   className?: string;
 }
 
-export const Preloader = (props: PreloaderProps) => {
-  const { className = '' } = props;
-
-  return <span className={cn(s.preloader, className)} />;
-};
+export const Preloader = ({ className = '' }: PreloaderProps) => (
+  <span className={cn(s.preloader, className)} />
+);

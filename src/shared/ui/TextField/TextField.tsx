@@ -9,13 +9,8 @@ import React, {
   useState,
 } from 'react';
 import cn from 'clsx';
-import { Text } from 'src/shared/ui/Text';
+import { Text } from '../Text/Text';
 import s from './TextField.module.scss';
-
-interface TextFieldClassNames {
-  wrapper?: string;
-  field?: string;
-}
 
 type TextFieldType = Extract<
   HTMLInputTypeAttribute,
@@ -28,7 +23,8 @@ export interface TextFieldProps extends Omit<InputHTMLAttributes<HTMLInputElemen
   defaultValue?: string;
   placeholder?: string;
   errorMessage?: ReactNode;
-  classNames?: TextFieldClassNames;
+  className?: string;
+  fieldClassName?: string;
   children?: never;
 }
 
@@ -42,7 +38,8 @@ export const TextField = memo(
         defaultValue,
         placeholder,
         errorMessage,
-        classNames,
+        className,
+        fieldClassName,
         onChange,
         onFocus,
         onBlur,
@@ -68,7 +65,7 @@ export const TextField = memo(
       };
 
       return (
-        <div className={cn(classNames?.wrapper, s.outer)}>
+        <div className={className}>
           <div className={cn(s.fieldWrapper, { [s.fieldWrapper_error]: errorMessage })}>
             {label && (
               <label
@@ -80,7 +77,7 @@ export const TextField = memo(
             )}
             <input
               ref={ref}
-              className={cn(s.field, classNames?.field)}
+              className={cn(s.field, fieldClassName)}
               id={inputId}
               type={type}
               value={value}

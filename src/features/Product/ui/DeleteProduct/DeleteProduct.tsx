@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import { useFetchProductByIdQuery } from 'src/entities/Product';
 import { ROUTER_PATHS } from 'src/shared/consts/router';
 import { Button } from 'src/shared/ui/Button';
-import { ConfirmModal } from 'src/shared/ui/modals/ConfirmModal';
+import { Confirmation } from 'src/shared/ui/Confirmation/Confirmation';
 import CloseIcon from 'src/shared/assets/icons/Trash.svg';
 import { useDeleteProductMutation } from '../../api/productMutationApi';
 
@@ -39,7 +39,7 @@ export const DeleteProduct = memo(({ id, className }: DeleteProductProps) => {
 
   return (
     <div className={className}>
-      <ConfirmModal
+      <Confirmation
         button={button}
         title={`${t('Удалить')} ${product.name}?`}
         desc="После удаления восстановить товар будет невозможно"

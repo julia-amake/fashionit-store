@@ -5,8 +5,8 @@ import { FormProps } from 'src/shared/types/formTypes';
 import { Button } from 'src/shared/ui/Button';
 import { Form } from 'src/shared/ui/Form';
 import { Heading } from 'src/shared/ui/Heading';
-import { Text } from 'src/shared/ui/Text';
-import { TextField } from 'src/shared/ui/TextField';
+import { Text } from 'src/shared/ui/Text/Text';
+import { TextField } from 'src/shared/ui/TextField/TextField';
 import { useChangePasswordForm } from '../../lib/hooks/useChangePasswordForm';
 
 export interface ChangePasswordFormValues {

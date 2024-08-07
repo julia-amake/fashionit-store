@@ -1,4 +1,4 @@
-import { useLayoutEffect, useState } from 'react';
+import { useLayoutEffect, useMemo, useState } from 'react';
 
 type UseImageLoadingResult = [isLoading: boolean, isError: boolean];
 
@@ -20,5 +20,5 @@ export const useImageLoading = (src: string): UseImageLoadingResult => {
     };
   }, [src]);
 
-  return [isLoading, isError];
+  return useMemo(() => [isLoading, isError], [isError, isLoading]);
 };

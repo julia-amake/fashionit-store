@@ -6,7 +6,7 @@ import { clearCart, selectCartProductsList } from 'src/features/Cart';
 import { ROUTER_PATHS } from 'src/shared/consts/router';
 import { useAppDispatch, useAppSelector } from 'src/shared/lib/hooks/redux';
 import { Button } from 'src/shared/ui/Button';
-import { Text } from 'src/shared/ui/Text';
+import { Text } from 'src/shared/ui/Text/Text';
 import { useCreateOrderMutation } from '../../api/orderApi';
 import s from './CreateOrder.module.scss';
 

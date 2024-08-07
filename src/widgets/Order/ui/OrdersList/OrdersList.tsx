@@ -6,7 +6,7 @@ import { ROUTER_PATHS } from 'src/shared/consts/router';
 import { formatDate } from 'src/shared/lib/utils/formatDate';
 import { Heading } from 'src/shared/ui/Heading';
 import { PicWrapper } from 'src/shared/ui/PicWrapper';
-import { Text } from 'src/shared/ui/Text';
+import { Text } from 'src/shared/ui/Text/Text';
 import { OrderStatus } from 'src/widgets/Order/model/types/orderTypes';
 import { useFetchOrdersQuery } from '../../api/orderApi';
 import s from './OrdersList.module.scss';

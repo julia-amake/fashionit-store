@@ -1,6 +1,6 @@
 import React from 'react';
 import cn from 'clsx';
-import { Skeleton } from 'src/shared/ui/Skeleton';
+import { Skeleton } from '../Skeleton/Skeleton';
 import s from './PicWrapper.module.scss';
 
 interface PicWrapperSkeletonProps {

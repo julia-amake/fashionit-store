@@ -1,13 +1,10 @@
 import React, { memo } from 'react';
 import cn from 'clsx';
-import { Button } from 'src/shared/ui/Button';
+import { ToggleSwitchButton } from './ToggleSwitchButton/ToggleSwitchButton';
 import s from './ToggleSwitch.module.scss';
 
 export interface SwitcherElem {
-  /**
-   * Текст на кнопке
-   */
-  label?: string;
+  children?: string | string[];
   /**
    * Текст при наведении
    */
@@ -27,28 +24,10 @@ interface SwitcherProps {
 export type SwitcherElems = { firstElem: SwitcherElem; lastElem: SwitcherElem };
 
 export const ToggleSwitch = memo(({ firstElem, lastElem, className }: SwitcherProps) => {
-  const button = ({ label, title, isActive, icon, iconFilled = icon, onClick }: SwitcherElem) => {
-    return (
-      <div className={cn(s.btnWrapper, { [s.btnWrapper_active]: isActive })}>
-        <Button
-          className={s.btn}
-          rounded
-          variant="clean"
-          size="xs"
-          title={title}
-          {...(icon ? { icon: isActive ? iconFilled : icon } : {})}
-          onClick={onClick}
-        >
-          {label}
-        </Button>
-      </div>
-    );
-  };
-
   return (
     <div className={cn(s.outer, className)}>
-      {button(firstElem)}
-      {button(lastElem)}
+      <ToggleSwitchButton {...firstElem} />
+      <ToggleSwitchButton {...lastElem} />
     </div>
   );
 });

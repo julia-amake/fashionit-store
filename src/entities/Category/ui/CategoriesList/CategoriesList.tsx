@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { Button } from 'src/shared/ui/Button';
 import { Heading } from 'src/shared/ui/Heading';
 import { PicWrapper } from 'src/shared/ui/PicWrapper';
-import { Text } from 'src/shared/ui/Text';
+import { Text } from 'src/shared/ui/Text/Text';
 import { useFetchCategoriesQuery } from '../../api/categoriesApi';
 import s from './CategoriesList.module.scss';
 

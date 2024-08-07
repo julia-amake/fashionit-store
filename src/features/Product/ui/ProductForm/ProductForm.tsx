@@ -5,7 +5,7 @@ import { ProductParams } from 'src/entities/Product/model/types/productTypes';
 import { Button } from 'src/shared/ui/Button';
 import { Form } from 'src/shared/ui/Form';
 import { Heading } from 'src/shared/ui/Heading';
-import { Text } from 'src/shared/ui/Text';
+import { Text } from 'src/shared/ui/Text/Text';
 import { useCreateUpdateProductMutation } from '../../api/productMutationApi';
 import { validate } from '../../lib/utils/validateProductForm';
 import { ProductCategorySelect } from '../ProductCategorySelect';

@@ -1,9 +1,9 @@
 import React, { ReactNode } from 'react';
 import cn from 'clsx';
-import { usePreventPageScrolling } from 'src/shared/lib/hooks/usePreventPageScrolling';
-import { Button } from 'src/shared/ui/Button';
-import { Portal } from 'src/shared/ui/Portal';
-import CloseIcon from 'src/shared/assets/icons/Close.svg';
+import CloseIcon from '../../assets/icons/Close.svg';
+import { usePreventPageScrolling } from '../../lib/hooks/usePreventPageScrolling';
+import { Button } from '../Button';
+import { Portal } from '../Portal/Portal';
 import s from './Modal.module.scss';
 
 interface ModalProps {

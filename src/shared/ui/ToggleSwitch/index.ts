@@ -1,1 +1,1 @@
-export { ToggleSwitch, type SwitcherElem, type SwitcherElems } from './ToggleSwitch';
+export { ToggleSwitch, type SwitcherElems } from './ToggleSwitch';

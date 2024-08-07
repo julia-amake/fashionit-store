@@ -4,7 +4,7 @@ import { useParams } from 'react-router-dom';
 import { useFetchCategoryByIdQuery } from 'src/entities/Category/api/categoriesApi';
 import { Heading } from 'src/shared/ui/Heading';
 import { PicWrapper } from 'src/shared/ui/PicWrapper';
-import { Text } from 'src/shared/ui/Text';
+import { Text } from 'src/shared/ui/Text/Text';
 import { CategoriesActionsPanel } from 'src/widgets/CategoriesActionsPanel';
 import s from './CategoryDetailsPage.module.scss';
 

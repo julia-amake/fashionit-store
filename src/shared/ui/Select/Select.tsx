@@ -1,6 +1,6 @@
 import React, { OptionHTMLAttributes, ReactNode, SelectHTMLAttributes, useId } from 'react';
 import cn from 'clsx';
-import { typedMemo } from 'src/shared/lib/utils/typedMemo';
+import { typedMemo } from '../../lib/utils/typedMemo';
 import s from './Select.module.scss';
 
 export interface SelectOption<T extends string = string>

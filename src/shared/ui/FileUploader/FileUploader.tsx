@@ -3,7 +3,7 @@ import cn from 'clsx';
 import { useUploadFileMutation } from '../../api/fileUploadApi';
 import EditIcon from '../../assets/icons/Edit.svg';
 import { PicWrapper } from '../PicWrapper';
-import { Text } from '../Text';
+import { Text } from '../Text/Text';
 import s from './FileUploader.module.scss';
 
 interface FileUploaderProps {

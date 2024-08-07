@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useFetchCategoryByIdQuery } from 'src/entities/Category/api/categoriesApi';
 import { ROUTER_PATHS } from 'src/shared/consts/router';
 import { Button } from 'src/shared/ui/Button';
-import { ConfirmModal } from 'src/shared/ui/modals/ConfirmModal';
+import { Confirmation } from 'src/shared/ui/Confirmation/Confirmation';
 import CloseIcon from 'src/shared/assets/icons/Trash.svg';
 import { useDeleteCategoryMutation } from '../../api/categoryMutationApi';
 
@@ -37,7 +37,7 @@ export const DeleteCategory = memo(({ id, className }: DeleteCategoryProps) => {
 
   return (
     <div className={className}>
-      <ConfirmModal
+      <Confirmation
         button={button}
         title={`Удалить категорию ${category.name}?`}
         desc="После удаления восстановить категорию будет невозможно"

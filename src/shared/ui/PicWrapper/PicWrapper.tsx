@@ -1,7 +1,7 @@
 import React from 'react';
 import cn from 'clsx';
-import { useImageLoading } from 'src/shared/lib/hooks/useImageLoading';
-import noProduct from 'src/shared/assets/img/no-product.svg?url';
+import noProduct from '../../assets/img/no-product.svg?url';
+import { useImageLoading } from '../../lib/hooks/useImageLoading';
 import s from './PicWrapper.module.scss';
 
 interface ProductPicWrapperProps {
