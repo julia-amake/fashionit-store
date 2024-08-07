@@ -1,9 +1,9 @@
 import React, { ChangeEvent, memo, useEffect } from 'react';
 import cn from 'clsx';
-import { useUploadFileMutation } from 'src/shared/api/fileUploadApi';
-import { PicWrapper } from 'src/shared/ui/PicWrapper';
-import { Text } from 'src/shared/ui/Text';
-import EditIcon from 'src/shared/assets/icons/Edit.svg';
+import { useUploadFileMutation } from '../../api/fileUploadApi';
+import EditIcon from '../../assets/icons/Edit.svg';
+import { PicWrapper } from '../PicWrapper';
+import { Text } from '../Text';
 import s from './FileUploader.module.scss';
 
 interface FileUploaderProps {

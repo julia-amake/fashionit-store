@@ -1,8 +1,8 @@
 import React from 'react';
 import type { Meta } from '@storybook/react';
 import { StoryFn } from '@storybook/react';
-import { Button } from 'src/shared/ui/Button';
-import { TextField } from 'src/shared/ui/TextField';
+import { Button } from '../Button';
+import { TextField } from '../TextField';
 import { Form } from './Form';
 
 const meta: Meta<typeof Form> = {
