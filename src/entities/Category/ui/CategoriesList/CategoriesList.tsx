@@ -1,11 +1,10 @@
-import React, { memo, useMemo } from 'react';
+import React, { memo } from 'react';
 import cn from 'clsx';
-import { Link } from 'react-router-dom';
-import { Button } from 'src/shared/ui/Button';
-import { Heading } from 'src/shared/ui/Heading';
-import { PicWrapper } from 'src/shared/ui/PicWrapper';
+import { useTranslation } from 'react-i18next';
 import { Text } from 'src/shared/ui/Text/Text';
 import { useFetchCategoriesQuery } from '../../api/categoriesApi';
+import { CategoriesListItem } from '../CategoriesListItem/CategoriesListItem';
+import { CategoriesListItemSkeleton } from '../CategoriesListItem/CategoriesListItemSkeleton';
 import s from './CategoriesList.module.scss';
 
 interface CategoriesListProps {
@@ -14,40 +13,23 @@ interface CategoriesListProps {
 
 export const CategoriesList = memo(({ className }: CategoriesListProps) => {
   const { data: categories, error, isLoading } = useFetchCategoriesQuery();
+  const { t } = useTranslation();
 
-  const text = useMemo(() => {
-    switch (true) {
-      case isLoading:
-        return 'Загружаем категории...';
-      case !!error:
-        return (
-          <>
-            Не удалось загрузить категории — <b>{error as string}</b>
-          </>
-        );
-      case !categories?.length:
-        return 'Нет категорий';
-      default:
-        return null;
-    }
-  }, [categories, error, isLoading]);
+  if (isLoading)
+    return (
+      <div className={cn(s.outer, className)}>
+        {[1, 2, 3, 4, 5, 6].map((item) => (
+          <CategoriesListItemSkeleton key={item} />
+        ))}
+      </div>
+    );
 
-  if (text) return <Text>{text}</Text>;
+  if (error || !categories?.length) return <Text>{(error as string) || t('Нет категорий')}</Text>;
 
   return (
     <div className={cn(s.outer, className)}>
-      {categories?.map(({ id, name, photo }) => (
-        <Link className={s.item} to={`/categories/${id}`} key={id}>
-          <PicWrapper className={s.pic} pic={photo} alt={name} />
-          <div className={s.content}>
-            <Heading className={s.title} as="h3" size="h5" uppercase>
-              {name}
-            </Heading>
-            <Button className={s.btn} size="xs">
-              Перейти
-            </Button>
-          </div>
-        </Link>
+      {categories?.map((category) => (
+        <CategoriesListItem key={category.id} {...category} />
       ))}
     </div>
   );

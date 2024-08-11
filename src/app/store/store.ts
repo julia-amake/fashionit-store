@@ -1,6 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
 import createSagaMiddleware from 'redux-saga';
-import { rootWatcher } from 'src/app/model/sagas/rootWatcher';
 import { catalogReducer } from 'src/entities/Product';
 import { logoutListenerMiddleware, userReducer } from 'src/features/Auth';
 import { cartReducer } from 'src/features/Cart';
@@ -23,8 +22,6 @@ export const store = configureStore({
       .concat(rtkApi.middleware, sagaMiddleware)
       .prepend(logoutListenerMiddleware.middleware),
 });
-
-sagaMiddleware.run(rootWatcher);
 
 export type AppStore = typeof store;
 export type RootState = ReturnType<typeof store.getState>;

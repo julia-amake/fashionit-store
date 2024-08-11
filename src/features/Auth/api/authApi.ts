@@ -1,12 +1,12 @@
-import { AuthResult } from 'src/features/Auth/model/types/authTypes';
-import { AuthFormValues } from 'src/features/Auth/ui/AuthForm/AuthForm';
+import { SessionResponse } from 'src/entities/Session';
 import { rtkApi } from 'src/shared/api/rtkApi';
 import { COMMAND_ID } from 'src/shared/consts/api';
 import { transformErrorResponse } from 'src/shared/lib/utils/transformErrorResponse';
+import { AuthFormValues } from '../ui/AuthForm/AuthForm';
 
 export const authApi = rtkApi.injectEndpoints({
   endpoints: (build) => ({
-    signInRTK: build.mutation<AuthResult, AuthFormValues>({
+    signIn: build.mutation<SessionResponse, AuthFormValues>({
       query: (arg) => ({
         url: '/signin',
         method: 'POST',
@@ -15,7 +15,7 @@ export const authApi = rtkApi.injectEndpoints({
       transformErrorResponse,
       invalidatesTags: [{ type: 'Category' }, { type: 'Product' }, 'Profile', 'Cart', 'Order'],
     }),
-    signUpRTK: build.mutation<AuthResult, AuthFormValues>({
+    signUpRTK: build.mutation<SessionResponse, AuthFormValues>({
       query: (arg) => ({
         url: '/signup',
         method: 'POST',
@@ -30,5 +30,5 @@ export const authApi = rtkApi.injectEndpoints({
   }),
 });
 
-export const { useSignInRTKMutation, useSignUpRTKMutation } = authApi;
-export const { signInRTK, signUpRTK } = authApi.endpoints;
+export const { useSignInMutation, useSignUpRTKMutation } = authApi;
+export const { signIn, signUpRTK } = authApi.endpoints;

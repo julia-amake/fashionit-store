@@ -1,6 +1,6 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
 import { fetchProducts, Product } from 'src/entities/Product';
-import { logout, signInRTK, signUpRTK } from 'src/features/Auth';
+import { logout, signIn, signUpRTK } from 'src/features/Auth';
 import { createUpdateProduct } from 'src/features/Product';
 import { FilterResponse } from 'src/shared/types/filterTypes';
 import { CatalogSchema, ProductsFilters } from '../types/productTypes';
@@ -64,10 +64,11 @@ const catalogSlice = createSlice({
         state.error = payload as unknown as string;
         state.hasMore = false;
       })
-      .addMatcher(signInRTK.matchFulfilled, (state) => {
+      .addMatcher(signIn.matchFulfilled, (state) => {
         resetCatalogSlice(state);
       })
-      .addMatcher(signUpRTK.matchFulfilled, (state) => {
+      .addMatcher(signUpRTK.matchFulfilled, (state, { payload }) => {
+        console.log(payload);
         resetCatalogSlice(state);
       })
       .addMatcher(createUpdateProduct.matchFulfilled, (state) => {

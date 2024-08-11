@@ -1,25 +1,25 @@
 import { createSlice, type PayloadAction } from '@reduxjs/toolkit';
 import { fetchProfile } from 'src/entities/Profile/api/profileApi';
+import { SessionSchema } from 'src/entities/Session';
 import { LOCAL_STORAGE_TOKEN_KEY } from 'src/shared/consts/localStorage';
-import { signInRTK, signUpRTK } from '../../api/authApi';
-import { UserSchema } from '../types/userTypes';
+import { signIn, signUpRTK } from '../../api/authApi';
 
-export const userInitialState: UserSchema = {
+export const userInitialState: SessionSchema = {
   token: '',
   isLoading: false,
   error: '',
 };
 
 const handlers = {
-  pending(state: UserSchema) {
+  pending(state: SessionSchema) {
     state.isLoading = true;
     state.error = '';
   },
-  fulfilled(state: UserSchema) {
+  fulfilled(state: SessionSchema) {
     state.isLoading = false;
     state.error = '';
   },
-  rejected(state: UserSchema, error = '') {
+  rejected(state: SessionSchema, error = '') {
     state.isLoading = false;
     state.error = error;
   },
@@ -41,13 +41,13 @@ const userSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      .addMatcher(signInRTK.matchPending, (state) => {
+      .addMatcher(signIn.matchPending, (state) => {
         handlers.pending(state);
       })
-      .addMatcher(signInRTK.matchFulfilled, (state, { type, payload: { token } }) => {
+      .addMatcher(signIn.matchFulfilled, (state, { type, payload: { token } }) => {
         userSlice.caseReducers.login(state, { type, payload: token });
       })
-      .addMatcher(signInRTK.matchRejected, (state, { payload }) => {
+      .addMatcher(signIn.matchRejected, (state, { payload }) => {
         handlers.rejected(state, payload as unknown as string);
       })
       .addMatcher(signUpRTK.matchPending, (state) => {

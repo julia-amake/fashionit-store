@@ -1,14 +1,14 @@
 import React from 'react';
 import { createHashRouter, Navigate } from 'react-router-dom';
 import App from 'src/app/App';
-import { AddProductPage } from 'src/pages/AddProductPage/ui/AddProductPage';
+import { AddProductPage } from 'src/pages/AddProductPage';
 import { CartPage } from 'src/pages/CartPage/ui/CartPage';
 import { CatalogPage } from 'src/pages/CatalogPage/ui/CatalogPage';
 import { CategoriesPage } from 'src/pages/CategoriesPage';
-import { CategoryDetailsPage } from 'src/pages/CategoryDetailsPage/ui/CategoryDetailsPage';
+import { CategoryDetailsPage } from 'src/pages/CategoryDetailsPage';
 import { OrdersPage } from 'src/pages/OrdersPage';
 import { ProductDetailsPage } from 'src/pages/ProductDetailsPage';
-import { ProfileSettingsPage } from 'src/pages/profile/ui/ProfileSettingsPage';
+import { ProfileSettingsPage } from 'src/pages/ProfileSettingsPage';
 import { ROUTER_PATHS } from 'src/shared/consts/router';
 import { BaseLayout } from 'src/shared/ui/layouts/BaseLayout';
 import { Header } from 'src/widgets/Header';
