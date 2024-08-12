@@ -1,1 +1,0 @@
-export { EditCreateCategory } from './EditCreateCategory';

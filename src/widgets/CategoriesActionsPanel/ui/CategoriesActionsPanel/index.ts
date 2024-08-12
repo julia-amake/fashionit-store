@@ -1,1 +1,0 @@
-export { CategoriesActionsPanel } from './CategoriesActionsPanel';

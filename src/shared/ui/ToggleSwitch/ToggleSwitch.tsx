@@ -1,35 +1,16 @@
-import React, { memo } from 'react';
+import React, { ReactNode } from 'react';
 import cn from 'clsx';
 import { ToggleSwitchButton } from './ToggleSwitchButton/ToggleSwitchButton';
 import s from './ToggleSwitch.module.scss';
 
-export interface SwitcherElem {
-  children?: string | string[];
-  /**
-   * Текст при наведении
-   */
-  title?: string;
-  isActive?: boolean;
-  icon?: SVGType;
-  iconFilled?: SVGType;
-  onClick?: () => void;
-}
-
 interface SwitcherProps {
-  firstElem: SwitcherElem;
-  lastElem: SwitcherElem;
+  children: ReactNode[];
   className?: string;
 }
 
-export type SwitcherElems = { firstElem: SwitcherElem; lastElem: SwitcherElem };
-
-export const ToggleSwitch = memo(({ firstElem, lastElem, className }: SwitcherProps) => {
-  return (
-    <div className={cn(s.outer, className)}>
-      <ToggleSwitchButton {...firstElem} />
-      <ToggleSwitchButton {...lastElem} />
-    </div>
-  );
-});
+export const ToggleSwitch = ({ children, className }: SwitcherProps) => {
+  return <div className={cn(className, s.outer)}>{children}</div>;
+};
 
 ToggleSwitch.displayName = 'ToggleSwitch';
+ToggleSwitch.Item = ToggleSwitchButton;

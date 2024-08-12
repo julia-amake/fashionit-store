@@ -1,1 +1,1 @@
-export { ProductActionsPanel } from './ProductActionsPanel';
+export { ProductActionsPanel } from './ui/ProductActionsPanel';

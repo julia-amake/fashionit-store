@@ -1,5 +1,5 @@
 import React, { memo } from 'react';
-import { getValidates } from 'src/shared/lib/utils/validation';
+import { getTouchedError } from 'src/shared/lib/utils/validation';
 import { FormProps } from 'src/shared/types/formTypes';
 import { Button } from 'src/shared/ui/Button';
 import { Form } from 'src/shared/ui/Form';
@@ -19,20 +19,8 @@ export interface AuthFormProps extends FormProps<AuthFormValues> {
 export const AuthForm = memo(({ formManager, title, className }: AuthFormProps) => {
   if (!formManager) return null;
 
-  const {
-    submitForm,
-    touched,
-    errors,
-    submitCount,
-    handleBlur,
-    handleSubmit,
-    handleChange,
-    values,
-    status,
-  } = formManager;
-
-  const { help: helpEmail } = getValidates(errors.email, touched.email, submitCount);
-  const { help: helpPassword } = getValidates(errors.password, touched.password, submitCount);
+  const { touched, errors, submitCount, handleBlur, handleSubmit, handleChange, values, status } =
+    formManager;
 
   return (
     <Form className={className} onSubmit={handleSubmit}>
@@ -48,7 +36,7 @@ export const AuthForm = memo(({ formManager, title, className }: AuthFormProps) 
         onBlur={handleBlur}
         label="Email"
         required
-        errorMessage={helpEmail}
+        errorMessage={getTouchedError(submitCount, errors.email, touched.email)}
       />
       <TextField
         value={values.password}
@@ -58,14 +46,14 @@ export const AuthForm = memo(({ formManager, title, className }: AuthFormProps) 
         onChange={handleChange}
         onBlur={handleBlur}
         label="Пароль"
-        errorMessage={helpPassword}
+        errorMessage={getTouchedError(submitCount, errors.password, touched.password)}
       />
       {status && (
-        <Text size="s" color="error">
+        <Text size="xs" color="error">
           {status}
         </Text>
       )}
-      <Button onClick={submitForm}>{title}</Button>
+      <Button type="submit">{title}</Button>
     </Form>
   );
 });

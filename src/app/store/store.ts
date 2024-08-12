@@ -1,26 +1,20 @@
 import { configureStore } from '@reduxjs/toolkit';
-import createSagaMiddleware from 'redux-saga';
+import { cartReducer } from 'src/entities/Cart';
 import { catalogReducer } from 'src/entities/Product';
-import { logoutListenerMiddleware, userReducer } from 'src/features/Auth';
-import { cartReducer } from 'src/features/Cart';
+import { authReducer } from 'src/features/Auth';
 import { rtkApi } from 'src/shared/api/rtkApi';
-import { appReducer } from '../model/slices/appSlice';
-
-const sagaMiddleware = createSagaMiddleware();
+import { appReducer } from '../model/appSlice';
 
 export const store = configureStore({
   reducer: {
     app: appReducer,
-    user: userReducer,
-    cart: cartReducer,
+    auth: authReducer,
     catalog: catalogReducer,
+    cart: cartReducer,
     [rtkApi.reducerPath]: rtkApi.reducer,
   },
   devTools: __IS_DEV__,
-  middleware: (getDefaultMiddleware) =>
-    getDefaultMiddleware()
-      .concat(rtkApi.middleware, sagaMiddleware)
-      .prepend(logoutListenerMiddleware.middleware),
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(rtkApi.middleware),
 });
 
 export type AppStore = typeof store;

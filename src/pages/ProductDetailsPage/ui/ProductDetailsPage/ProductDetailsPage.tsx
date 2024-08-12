@@ -1,23 +1,27 @@
 import React, { memo } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
-import { useFetchProductByIdQuery } from 'src/entities/Product';
-import { ProductDetails } from 'src/entities/Product/ui/ProductDetails';
-import { CartButton } from 'src/features/Cart';
+import { ProductDetails, useFetchProductByIdQuery } from 'src/entities/Product';
+import { ProductDetailsSkeleton } from 'src/entities/Product/ui/ProductDetails/ProductDetailsSkeleton';
+import { CartButton } from 'src/features/cart/CartButton';
+import { useAppearanceDelay } from 'src/shared/lib/hooks/useAppearanceDelay';
 import { ProductActionsPanel } from 'src/widgets/ProductActionsPanel';
 import s from './ProductDetailsPage.module.scss';
 
 export const ProductDetailsPage = memo(() => {
   const { id } = useParams();
   const { data: product, isLoading, error } = useFetchProductByIdQuery(id || '', { skip: !id });
+  const showSkeleton = useAppearanceDelay(isLoading, { defaultValue: true });
+  const { t } = useTranslation();
 
-  if (isLoading) return 'Загружаем данные о товаре...';
+  if (showSkeleton) return <ProductDetailsSkeleton />;
   if (error) return error as string;
-  if (!product) return 'Нет такого товара';
+  if (!product) return t('Такого товара не существует');
 
   const { name, price, category, desc, photo } = product;
 
   return (
-    <div className={s.outer}>
+    <div>
       <ProductActionsPanel className={s.actions} id={id} />
       <ProductDetails
         title={name}
@@ -25,7 +29,7 @@ export const ProductDetailsPage = memo(() => {
         category={category}
         desc={desc}
         {...(photo ? { pics: [photo] } : {})}
-        cartBtn={<CartButton id={product.id} />}
+        cartBtn={<CartButton product={product} />}
       />
     </div>
   );

@@ -1,11 +1,12 @@
-import React, { memo, ReactNode } from 'react';
+import React, { ElementType, memo, ReactNode } from 'react';
 import cn from 'clsx';
 import s from './Text.module.scss';
 
-type TextSize = 's' | 'm' | 'l';
+type TextSize = 'xs' | 's' | 'm' | 'l';
 type TextColor = 'primary' | 'error';
 
 interface TextProps {
+  as?: ElementType;
   size?: TextSize;
   color?: TextColor;
   weight?: 'light' | 'normal' | 'bold';
@@ -14,7 +15,14 @@ interface TextProps {
 }
 
 export const Text = memo(
-  ({ children, className, size = 'm', weight = 'normal', color = 'primary' }: TextProps) => {
+  ({
+    as: Elem = 'div',
+    children,
+    className,
+    size = 'm',
+    weight = 'normal',
+    color = 'primary',
+  }: TextProps) => {
     const classNames = cn(
       s.text,
       className,
@@ -23,7 +31,7 @@ export const Text = memo(
       s[`weight_${weight}`]
     );
 
-    return <div className={cn(classNames)}>{children}</div>;
+    return <Elem className={cn(classNames)}>{children}</Elem>;
   }
 );
 

@@ -1,7 +1,8 @@
 import React, { ReactElement } from 'react';
 import cn from 'clsx';
+import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
-import { Category } from 'src/entities/Product';
+import { Category } from 'src/shared/api/common';
 import { ROUTER_PATHS } from 'src/shared/consts/router';
 import { formatNumberToLocal } from 'src/shared/lib/utils/formatNumberToLocal';
 import { Heading } from 'src/shared/ui/Heading';
@@ -25,6 +26,8 @@ export const ProductDetails = ({
   pics = [],
   cartBtn,
 }: ProductDetailsProps) => {
+  const { t } = useTranslation();
+
   const renderImages = (() =>
     pics.map((pic, idx) => (
       <img className={cn(s.pic, idx < 2 ? s.pic_l : s.pic_s)} src={pic} alt="" key={pic} />
@@ -46,7 +49,9 @@ export const ProductDetails = ({
           {title}
         </Heading>
         {desc && <p className={s.desc}>{desc}</p>}
-        <div className={s.price}>{formatNumberToLocal(price)} руб.</div>
+        <div className={s.price}>
+          {formatNumberToLocal(price)} {t('руб')}.
+        </div>
         <div className={s.cart}>{cartBtn}</div>
       </div>
     </div>

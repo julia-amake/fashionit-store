@@ -1,2 +1,7 @@
-export { useFetchProfileQuery } from './api/profileApi';
-export type { Profile, ProfileRequest, User } from './model/types/profileTypes';
+export {
+  useFetchProfileQuery,
+  useEditProfileMutation,
+  profileApi,
+  fetchProfile,
+} from './api/profileApi';
+export type { Profile, UpdateProfileBody } from './model/types/profileTypes';

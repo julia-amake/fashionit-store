@@ -1,1 +1,0 @@
-export { DeleteCategory } from './DeleteCategory';

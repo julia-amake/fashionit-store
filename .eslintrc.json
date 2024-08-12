@@ -7,18 +7,13 @@
   },
   "extends": [
     "plugin:react/jsx-runtime",
-    // позволяет не импортировать реакт
     "plugin:import/recommended",
-    // подсказки при импорте
-    // "airbnb",
     "plugin:jest/recommended",
     "eslint:recommended",
     "plugin:react/recommended",
     "plugin:react-hooks/recommended",
-    //поддержка хуков
     "plugin:@typescript-eslint/recommended",
     "prettier",
-    // отключает конфликты с prettier
     "plugin:prettier/recommended"
   ],
   "overrides": [],

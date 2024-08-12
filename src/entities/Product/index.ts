@@ -1,5 +1,4 @@
 export { ProductsList } from './ui/ProductsList';
-export type { Product, Category } from './model/types/productTypes';
 export {
   catalogReducer,
   selectCatalogProducts,
@@ -8,8 +7,26 @@ export {
   selectCatalogHasMore,
   selectCatalogFilter,
   setCurrentPage,
-} from './model/slices/catalogSlice';
+  resetCatalog,
+} from './model/slices/productSlice';
 
-export { type CatalogSchema } from './model/types/productTypes';
+export type {
+  CatalogSchema,
+  Product,
+  ProductsFilters,
+  ProductsRequest,
+  ProductParams,
+} from './model/types/productTypes';
 
-export { useFetchProductsQuery, useFetchProductByIdQuery, fetchProducts } from './api/productApi';
+export {
+  useFetchProductsQuery,
+  useFetchProductByIdQuery,
+  useCreateUpdateProductMutation,
+  useDeleteProductMutation,
+  fetchProducts,
+  createUpdateProduct,
+  deleteProduct,
+  productApi,
+} from './api/productApi';
+
+export { ProductDetails } from './ui/ProductDetails';

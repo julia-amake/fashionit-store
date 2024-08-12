@@ -1,8 +1,9 @@
-import { Category } from 'src/entities/Product';
+import { Category } from 'src/shared/api/common';
 import { rtkApi } from 'src/shared/api/rtkApi';
 import { stringifyNestedObjects } from 'src/shared/lib/utils/stringifyNestedObjects';
 import { transformErrorResponse } from 'src/shared/lib/utils/transformErrorResponse';
 import { Filter, FilterRequest, FilterResponse } from 'src/shared/types/filterTypes';
+import { CategoryParams } from '../model/types/categoriesTypes';
 
 const fetchCategoriesParams: FilterRequest = (() => {
   const params: Filter = {
@@ -28,7 +29,8 @@ export const categoriesApi = rtkApi.injectEndpoints({
       }),
       providesTags: [{ type: 'Category', id: 'List' }],
       transformErrorResponse,
-      transformResponse: (rawResponse: FilterResponse<Category>) => rawResponse.data,
+      transformResponse: (rawResponse: FilterResponse<Category>) =>
+        new Promise((resolve) => setTimeout(() => resolve(rawResponse.data), 500)),
     }),
     fetchCategoryById: build.query<Category, string>({
       query: (id) => ({
@@ -37,8 +39,40 @@ export const categoriesApi = rtkApi.injectEndpoints({
       transformErrorResponse,
       providesTags: [{ type: 'Category', id: 'Item' }],
     }),
+    createCategory: build.mutation<Category, CategoryParams>({
+      query: (body) => ({
+        url: '/categories',
+        method: 'POST',
+        body,
+      }),
+      invalidatesTags: [{ type: 'Category' }, { type: 'Product' }],
+      transformErrorResponse,
+    }),
+    editCategory: build.mutation<Category, { values: Partial<CategoryParams>; id: string }>({
+      query: ({ values, id }) => ({
+        url: `/categories/${id}`,
+        method: 'PATCH',
+        body: values,
+      }),
+      invalidatesTags: [{ type: 'Category' }, { type: 'Product' }],
+      transformErrorResponse,
+    }),
+    deleteCategory: build.mutation<Category, string>({
+      query: (id) => ({
+        url: `/categories/${id}`,
+        method: 'DELETE',
+      }),
+      transformErrorResponse,
+      invalidatesTags: [{ type: 'Category' }, { type: 'Product' }],
+    }),
   }),
 });
 
-export const { useFetchCategoriesQuery, useFetchCategoryByIdQuery } = categoriesApi;
+export const {
+  useFetchCategoriesQuery,
+  useCreateCategoryMutation,
+  useFetchCategoryByIdQuery,
+  useEditCategoryMutation,
+  useDeleteCategoryMutation,
+} = categoriesApi;
 export const { fetchCategories } = categoriesApi.endpoints;

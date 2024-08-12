@@ -1,4 +1,9 @@
-export { UserBar } from './ui/UserBar';
-export { userReducer, selectToken, logout, login } from './model/slices/userSlice';
-export { logoutListenerMiddleware } from './model/services/logoutListenerMiddleware';
-export { signIn, signUpRTK, useSignUpRTKMutation, useSignInMutation } from './api/authApi';
+export { logout, login, authInitialize } from './model/services/authThunks';
+export {
+  selectIsAuth,
+  selectAuthError,
+  selectAuthIsLoading,
+  authReducer,
+} from './model/slices/authSlice';
+export { Auth } from './ui/Auth';
+export type { AuthMode } from './model/types/authTypes';

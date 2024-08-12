@@ -3,13 +3,14 @@
   --color--danger: #FF6A55;
   --color-overlay: #2e2e2f;
   --color-light: #FFFFFF;
+  --color-dark: #050505;
 
   --header-height: 80px;
   --product-ratio: 1 / 1.25;
 }
 
 .light {
-  --color-main: #050505;
+  --color-main: var(--color-dark);
   --color-main-inverted: var(--color-light);
   --color-gray-1: #282828;
   --color-gray-2: #a2a2a2;
@@ -20,7 +21,7 @@
 
 .dark {
   --color-main: var(--color-light);
-  --color-main-inverted: #050505;
+  --color-main-inverted: var(--color-dark);
   --color-gray-1: #e0e0e0;
   --color-gray-2: #8a8a8a;
   --color-gray-3: #252525;

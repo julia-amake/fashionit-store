@@ -1,5 +1,6 @@
 const path = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const CopyPlugin = require('copy-webpack-plugin');
 const CssMinimizerWebpackPlugin = require('css-minimizer-webpack-plugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -16,7 +17,7 @@ module.exports = (_, args) => {
   const isDev = args.mode === 'development';
   const publicPath = isDev
     ? `http://${host}:${port}/`
-    : 'https://julia-amake.github.io/'; /* <- прописать данные своего github */
+    : 'https://fashionit.amake.ru/assets/components/fashionit/';
 
   return {
     entry: './index.tsx',
@@ -128,7 +129,19 @@ module.exports = (_, args) => {
       new webpack.DefinePlugin({
         __IS_DEV__: JSON.stringify(isDev),
       }),
-      ...(isProd ? [new CssMinimizerWebpackPlugin()] : []),
+      ...(isProd
+        ? [
+            new CssMinimizerWebpackPlugin(),
+            new CopyPlugin({
+              patterns: [
+                {
+                  from: path.resolve(__dirname, 'public', 'locales'),
+                  to: path.resolve(__dirname, 'dist', 'locales'),
+                },
+              ],
+            }),
+          ]
+        : []),
     ],
   };
 };

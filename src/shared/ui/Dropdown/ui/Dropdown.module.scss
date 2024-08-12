@@ -3,18 +3,15 @@
 }
 
 .trigger {
-  padding: 0.5em;
-
-  &_active {
-    box-shadow: 0 0 0 1px var(--color-main);
-  }
+  cursor: pointer;
 }
 
 .content {
   display: none;
   position: absolute;
   z-index: 100;
-  min-width: 100%;
+  width: 100%;
+  min-width: 180px;
   padding: 0.5em 0;
   top: 100%;
   background: var(--color-main-inverted);
@@ -35,7 +32,7 @@
 
 .item {
   width: 100%;
-  padding: 0.5em 1em;
+  padding: 0.8em 1.5em;
 
   &:hover {
     background: var(--color-gray-3);

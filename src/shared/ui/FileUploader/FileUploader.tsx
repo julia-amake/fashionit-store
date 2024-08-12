@@ -1,5 +1,6 @@
 import React, { ChangeEvent, memo, useEffect } from 'react';
 import cn from 'clsx';
+import { useTranslation } from 'react-i18next';
 import { useUploadFileMutation } from '../../api/fileUploadApi';
 import EditIcon from '../../assets/icons/Edit.svg';
 import { PicWrapper } from '../PicWrapper';
@@ -16,15 +17,9 @@ interface FileUploaderProps {
 }
 
 export const FileUploader = memo(
-  ({
-    title = 'Изображение',
-    pic,
-    picProportion = '1/1',
-    disabled,
-    onUpload,
-    className,
-  }: FileUploaderProps) => {
+  ({ title, pic, picProportion = '1/1', disabled, onUpload, className }: FileUploaderProps) => {
     const [uploadFile, { data, isLoading, error }] = useUploadFileMutation();
+    const { t } = useTranslation();
 
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
       if (isLoading || !e.target.files) return;
@@ -40,7 +35,7 @@ export const FileUploader = memo(
     return (
       <div className={cn(s.outer, className, { [s.outer_disabled]: isLoading || disabled })}>
         <Text weight="bold" className={s.title}>
-          {title}
+          {title || t('Изображение')}
         </Text>
         <div className={s.picOuter} style={{ aspectRatio: picProportion }}>
           <PicWrapper className={s.pic} pic={data || pic} />

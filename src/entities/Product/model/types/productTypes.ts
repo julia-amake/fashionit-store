@@ -1,11 +1,6 @@
+import { Category } from 'src/shared/api/common';
 import { Filter, SortingField, SortingType } from 'src/shared/types/filterTypes';
-import { CategoryName } from '../../mocks/productsMocks';
 
-export interface Category {
-  id: string;
-  name: CategoryName;
-  photo?: string;
-}
 export interface ProductParams {
   name: string;
   photo?: string;
@@ -15,12 +10,17 @@ export interface ProductParams {
   categoryId: string;
 }
 
-export interface Product extends Omit<ProductParams, 'categoryId'> {
+export interface Product {
   id: string;
+  name: string;
+  photo?: string;
+  desc?: string;
+  price: number;
+  oldPrice?: number;
+  category: Category | null;
   createdAt: string;
   updatedAt: string;
   commandId: string;
-  category: Category | null;
 }
 
 export interface CatalogSchema {

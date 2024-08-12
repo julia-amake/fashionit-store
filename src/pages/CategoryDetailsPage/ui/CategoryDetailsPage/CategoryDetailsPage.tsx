@@ -1,9 +1,12 @@
 import React, { memo } from 'react';
 import cn from 'clsx';
+import { useTranslation } from 'react-i18next';
 import { useParams } from 'react-router-dom';
-import { useFetchCategoryByIdQuery } from 'src/entities/Category/api/categoriesApi';
+import { useFetchCategoryByIdQuery } from 'src/entities/Category';
+import { useAppearanceDelay } from 'src/shared/lib/hooks/useAppearanceDelay';
 import { Heading } from 'src/shared/ui/Heading';
 import { PicWrapper } from 'src/shared/ui/PicWrapper';
+import { Skeleton } from 'src/shared/ui/Skeleton/Skeleton';
 import { Text } from 'src/shared/ui/Text/Text';
 import { CategoriesActionsPanel } from 'src/widgets/CategoriesActionsPanel';
 import s from './CategoryDetailsPage.module.scss';
@@ -15,16 +18,27 @@ interface CategoryDetailsPageProps {
 export const CategoryDetailsPage = memo(({ className }: CategoryDetailsPageProps) => {
   const { id } = useParams();
   const { data, isLoading, error } = useFetchCategoryByIdQuery(id || '', { skip: !id });
+  const showSkeleton = useAppearanceDelay(isLoading, { defaultValue: true });
+  const { t } = useTranslation();
 
-  if (isLoading) return <Text>Загружаем...</Text>;
-  if (error || !data) return <Text>{(error as string) || 'Нет данных'}</Text>;
+  if (showSkeleton)
+    return (
+      <div className={cn(s.outer, className)}>
+        <div className={s.header}>
+          <Skeleton height={44} width="30%" marginBottom={8} marginTop={4} />
+        </div>
+        <Skeleton width={640} height={800} />
+      </div>
+    );
+
+  if (error || !data) return <Text>{(error as string) || t('Нет данных')}</Text>;
 
   const { name, photo } = data;
 
   return (
     <div className={cn(s.outer, className)}>
       <div className={s.header}>
-        <Heading className={s.title} as="h1" size="h3">
+        <Heading as="h1" size="h3">
           {name}
         </Heading>
         <CategoriesActionsPanel id={id} className={s.actions} />

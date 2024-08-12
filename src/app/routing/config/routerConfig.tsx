@@ -1,9 +1,8 @@
 import React from 'react';
-import { createHashRouter, Navigate } from 'react-router-dom';
+import { createBrowserRouter, Navigate } from 'react-router-dom';
 import App from 'src/app/App';
-import { AddProductPage } from 'src/pages/AddProductPage';
-import { CartPage } from 'src/pages/CartPage/ui/CartPage';
-import { CatalogPage } from 'src/pages/CatalogPage/ui/CatalogPage';
+import { CartPage } from 'src/pages/CartPage';
+import { CatalogPage } from 'src/pages/CatalogPage';
 import { CategoriesPage } from 'src/pages/CategoriesPage';
 import { CategoryDetailsPage } from 'src/pages/CategoryDetailsPage';
 import { OrdersPage } from 'src/pages/OrdersPage';
@@ -14,7 +13,7 @@ import { BaseLayout } from 'src/shared/ui/layouts/BaseLayout';
 import { Header } from 'src/widgets/Header';
 import { RequireAuth } from '../ui/RequireAuth';
 
-export const routerConfig = createHashRouter([
+export const routerConfig = createBrowserRouter([
   {
     path: ROUTER_PATHS.MAIN,
     element: <App />,
@@ -47,32 +46,21 @@ export const routerConfig = createHashRouter([
             element: <CartPage />,
           },
           {
-            path: ROUTER_PATHS.ORDERS,
-            element: (
-              <RequireAuth>
-                <OrdersPage />
-              </RequireAuth>
-            ),
+            element: <RequireAuth />,
+            children: [
+              {
+                path: ROUTER_PATHS.PROFILE_SETTINGS,
+                element: <ProfileSettingsPage />,
+              },
+              {
+                path: ROUTER_PATHS.ORDERS,
+                element: <OrdersPage />,
+              },
+            ],
           },
           {
             path: ROUTER_PATHS.FORBIDDEN,
             element: <div>У вас нет доступа к этой странице</div>,
-          },
-          {
-            path: ROUTER_PATHS.ADD_PRODUCT,
-            element: (
-              <RequireAuth>
-                <AddProductPage />
-              </RequireAuth>
-            ),
-          },
-          {
-            path: ROUTER_PATHS.PROFILE_SETTINGS,
-            element: (
-              <RequireAuth>
-                <ProfileSettingsPage />
-              </RequireAuth>
-            ),
           },
           { path: ROUTER_PATHS.NOT_FOUND, element: <div>Такой страницы не существует</div> },
         ],

@@ -1,17 +1,11 @@
 export interface Profile {
   id: string;
-  name: string;
+  name?: string;
   email: string;
   signUpDate: string;
   commandId: string;
 }
 
-export interface ProfileRequest {
+export interface UpdateProfileBody {
   name: string;
-}
-
-export interface User {
-  id: string;
-  name?: string;
-  commandId: string;
 }

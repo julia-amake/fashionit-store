@@ -1,8 +1,7 @@
-import React, { memo, useContext, useMemo } from 'react';
+import React, { memo, useContext } from 'react';
 import { LANGUAGES } from 'src/shared/consts/langs';
 import { TranslationsContext } from 'src/shared/lib/context/TranslationsContext';
-import { SwitcherElems, ToggleSwitch } from 'src/shared/ui/ToggleSwitch';
-import { SwitcherElem } from 'src/shared/ui/ToggleSwitch/ToggleSwitch';
+import { ToggleSwitch } from 'src/shared/ui/ToggleSwitch/ToggleSwitch';
 import IconEn from 'src/shared/assets/icons/LangEn.svg';
 import IconEnBold from 'src/shared/assets/icons/LangEnBold.svg';
 import IconRu from 'src/shared/assets/icons/LangRu.svg';
@@ -15,33 +14,29 @@ interface LangSwitcherProps {
 export const LangSwitcher = memo(({ className }: LangSwitcherProps) => {
   const { language, changeLanguage } = useContext(TranslationsContext);
 
-  const elems = useMemo((): SwitcherElems => {
-    const handleClick = (lang: ObjectValue<typeof LANGUAGES>) => () => {
-      if (language === lang.SHORT) return;
-      changeLanguage(lang.SHORT);
-    };
+  const handleClick = (lang: ObjectValue<typeof LANGUAGES>) => () => {
+    if (language === lang.SHORT) return;
+    changeLanguage(lang.SHORT);
+  };
 
-    const getElem = (
-      lang: ObjectValue<typeof LANGUAGES>,
-      icon: SVGType,
-      iconFilled: SVGType
-    ): SwitcherElem => {
-      return {
-        title: lang.LONG_CAP,
-        icon,
-        iconFilled,
-        isActive: language === lang.SHORT,
-        onClick: handleClick(lang),
-      };
-    };
-
-    return {
-      firstElem: getElem(LANGUAGES.RU, IconRu, IconRuBold),
-      lastElem: getElem(LANGUAGES.EN, IconEn, IconEnBold),
-    };
-  }, [language, changeLanguage]);
-
-  return <ToggleSwitch {...elems} className={className} />;
+  return (
+    <ToggleSwitch className={className}>
+      <ToggleSwitch.Item
+        title={LANGUAGES.RU.LONG_CAP}
+        icon={IconRu}
+        iconFilled={IconRuBold}
+        isActive={language === LANGUAGES.RU.SHORT}
+        onClick={handleClick(LANGUAGES.RU)}
+      />
+      <ToggleSwitch.Item
+        title={LANGUAGES.EN.LONG_CAP}
+        icon={IconEn}
+        iconFilled={IconEnBold}
+        isActive={language === LANGUAGES.EN.SHORT}
+        onClick={handleClick(LANGUAGES.EN)}
+      />
+    </ToggleSwitch>
+  );
 });
 
 LangSwitcher.displayName = 'LangSwitcher';

@@ -1,10 +1,10 @@
 import React, { memo } from 'react';
 import cn from 'clsx';
 import { useTranslation } from 'react-i18next';
+import { Skeleton } from 'src/shared/ui/Skeleton/Skeleton';
 import { Text } from 'src/shared/ui/Text/Text';
 import { useFetchCategoriesQuery } from '../../api/categoriesApi';
 import { CategoriesListItem } from '../CategoriesListItem/CategoriesListItem';
-import { CategoriesListItemSkeleton } from '../CategoriesListItem/CategoriesListItemSkeleton';
 import s from './CategoriesList.module.scss';
 
 interface CategoriesListProps {
@@ -19,7 +19,7 @@ export const CategoriesList = memo(({ className }: CategoriesListProps) => {
     return (
       <div className={cn(s.outer, className)}>
         {[1, 2, 3, 4, 5, 6].map((item) => (
-          <CategoriesListItemSkeleton key={item} />
+          <Skeleton className={cn(s.skeleton)} key={item} />
         ))}
       </div>
     );

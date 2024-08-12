@@ -1,7 +1,8 @@
 import React, { memo } from 'react';
 import cn from 'clsx';
 import { useTranslation } from 'react-i18next';
-import { ChangePasswordForm, ProfileForm } from 'src/features/Profile';
+import { ChangePasswordForm } from 'src/features/profile/ChangePassword';
+import { ProfileForm } from 'src/features/profile/ProfileForm';
 import { Heading } from 'src/shared/ui/Heading';
 import { ContentLayout } from 'src/shared/ui/layouts/ContentLayout';
 import s from './ProfileSettingsPage.module.scss';

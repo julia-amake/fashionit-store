@@ -1,9 +1,9 @@
 import React, { memo } from 'react';
-import { UserBar } from 'src/features/Auth';
-import { LangSwitcher } from 'src/features/LangSwitcher/ui/LangSwitcher';
-import { ThemeSwitcher } from 'src/features/ThemeSwitcher/ui/ThemeSwitcher';
+import { CartBar } from 'src/features/cart/CartBar';
+import { LangSwitcher } from 'src/features/LangSwitcher';
+import { ThemeSwitcher } from 'src/features/ThemeSwitcher';
 import { AppLogo } from 'src/shared/ui/AppLogo';
-import { HeaderMenu } from '../HeaderMenu';
+import { HeaderMenu } from '../HeaderMenu/HeaderMenu';
 import s from './Header.module.scss';
 
 export const Header = memo(() => {
@@ -15,7 +15,7 @@ export const Header = memo(() => {
         <div className={s.right}>
           <LangSwitcher />
           <ThemeSwitcher />
-          <UserBar />
+          <CartBar className={s.cart} />
         </div>
       </div>
     </div>

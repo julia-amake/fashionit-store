@@ -1,4 +1,4 @@
-import { startTransition, useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 interface AppearanceDelayOptions {
   defaultValue?: boolean;
@@ -16,7 +16,7 @@ export const useAppearanceDelay = (
   useEffect(() => {
     timerRef.current = setTimeout(
       () => {
-        startTransition(() => setShown(!!show));
+        setShown(!!show);
       },
       show ? appearanceDelay : minDisplay
     );

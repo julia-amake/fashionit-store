@@ -1,11 +1,22 @@
 import React, { memo } from 'react';
 import cn from 'clsx';
 import { Button } from '../../Button';
-import { SwitcherElem } from '../ToggleSwitch';
 import s from './ToggleSwitchButton.module.scss';
 
+interface ToggleSwitchButtonProps {
+  children?: string | string[];
+  /**
+   * Текст при наведении
+   */
+  title?: string;
+  isActive?: boolean;
+  icon?: SVGType;
+  iconFilled?: SVGType;
+  onClick?: () => void;
+}
+
 export const ToggleSwitchButton = memo(
-  ({ children, title, isActive, icon, iconFilled = icon, onClick }: SwitcherElem) => {
+  ({ children, title, isActive, icon, iconFilled = icon, onClick }: ToggleSwitchButtonProps) => {
     return (
       <div className={cn(s.outer, { [s.outer_active]: isActive })}>
         <Button

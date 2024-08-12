@@ -89,7 +89,7 @@ export const TextField = memo(
             />
           </div>
           {errorMessage && (
-            <Text className={s.error} size="s" color="error">
+            <Text className={s.error} size="xs" color="error">
               {String(errorMessage)}
             </Text>
           )}

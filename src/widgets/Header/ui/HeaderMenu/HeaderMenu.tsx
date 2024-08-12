@@ -2,30 +2,39 @@ import React, { memo } from 'react';
 import cn from 'clsx';
 import { useTranslation } from 'react-i18next';
 import { NavLink } from 'react-router-dom';
-import { MENU_LIST } from '../../types/menuTypes';
+import { selectIsAuth } from 'src/features/Auth';
+import { useAppSelector } from 'src/shared/lib/hooks/redux';
+import { UserBar } from '../UserBar/UserBar';
+import { MENU_LIST } from './menuList';
 import s from './HeaderMenu.module.scss';
 
 interface HeaderMenuProps {
   className?: string;
 }
 
-export const HeaderMenu = memo((props: HeaderMenuProps) => {
-  const { className } = props;
+export const HeaderMenu = memo(({ className }: HeaderMenuProps) => {
+  const isAuth = useAppSelector(selectIsAuth);
   const { t } = useTranslation();
-
-  const linkClassNames = ({ isActive }: { isActive: boolean }) =>
-    cn(s.link, { [s.link_active]: isActive });
 
   return (
     <nav className={className}>
       <ul className={s.menu}>
-        {MENU_LIST.map(({ name, link, id }) => (
-          <li key={id}>
-            <NavLink className={linkClassNames} to={link}>
-              {t(name)}
-            </NavLink>
-          </li>
-        ))}
+        {MENU_LIST.map(({ name, link, id, requiredAuth }) =>
+          !requiredAuth || (requiredAuth && isAuth) ? (
+            <li key={id}>
+              <NavLink
+                to={link}
+                end
+                className={({ isActive }) => cn(s.link, { [s.link_active]: isActive })}
+              >
+                {t(name)}
+              </NavLink>
+            </li>
+          ) : null
+        )}
+        <li>
+          <UserBar />
+        </li>
       </ul>
     </nav>
   );
