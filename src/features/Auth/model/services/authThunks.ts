@@ -49,6 +49,7 @@ export const login = createAppAsyncThunk()(
       dispatch(productApi.util.resetApiState());
       dispatch(initializeCart());
       dispatch(productApi.util.invalidateTags(['Category', 'Cart', 'Order']));
+      window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
 
       return response.data;
     } catch (err) {
